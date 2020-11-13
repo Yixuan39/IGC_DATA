@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/var/lib/slurm-llnl/slurmd/job1749843/slurm_script", line 28, in <module>
+    tau=1, omega=0.1, kappa=2, inibl=0.01 )
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 98, in __init__
+    self.initialize_parameters()
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 102, in initialize_parameters
+    self.get_tree()
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 113, in get_tree
+    self.tree, self.edge_list, self.node_to_num = read_newick(self.newicktree, self.post_dup)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconFunc.py", line 137, in read_newick
+    assert(os.path.isfile(newick_file))  # check if file exists
+AssertionError

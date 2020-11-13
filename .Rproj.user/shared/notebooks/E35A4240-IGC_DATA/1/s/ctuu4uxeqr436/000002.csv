@@ -1,0 +1,3 @@
+"0","NameList <- readLines(paste( ""./data/211MG/save/MG94_01_02_nonclockqq_summary.txt"", sep = """"))"
+"0","NameList <- unlist(strsplit(NameList[90], split="" ""))"
+"0","NameList <- NameList[!(NameList %in% NameList[1])]"

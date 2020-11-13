@@ -1,0 +1,7 @@
+"0","Asymmetry <- function(x){"
+"0","  one <- paste(""("", x, "",1->2)"",sep = """")"
+"0","  two <- paste(""("", x, "",2->1)"",sep = """")"
+"0","  qplot(MG[one,], MG[two,], main = x) + geom_abline(slope = 1, intercept = 0) +"
+"0","    labs(x=""1->2"", y=""2->1"")"
+"0","}"
+"0","Asymmetry(""N1,N3"")"

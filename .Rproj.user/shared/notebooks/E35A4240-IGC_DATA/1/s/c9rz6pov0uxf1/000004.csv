@@ -1,0 +1,6 @@
+"0","TMG <- t(MG)"
+"0","ot <- lm(MG[""omega"",]~MG[""tau"",])$coefficients"
+"0","pearson <- cor(MG[""omega"",], MG[""tau"",], method = ""pearson"")"
+"0","qplot(MG[""omega"",], MG[""tau"",]) + "
+"0","  geom_abline(slope = ot[2], intercept = ot[1]) + "
+"0","  labs(title = ""omega vs tau"", x=""omega"", y=""tau"", subtitle = paste(""pearson:"", pearson, ""\nslope:    "", ot))"

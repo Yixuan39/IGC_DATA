@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+<script src="lib/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="lib/jquery-1.12.4/jquery.min.js"></script>
+<link href="lib/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="lib/datatables-binding-0.16/datatables.js"></script>
+<link href="lib/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="lib/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="lib/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="lib/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="lib/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+
+</head>
+<body>
+<!-- htmlwidget-container-begin -->
+<div id="htmlwidget-caddb348108a40e56ac5" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<!-- htmlwidget-container-end -->
+<script type="application/json" data-for="htmlwidget-caddb348108a40e56ac5">{"x":{"filter":"none","data":[["(N1,N3,tau)","(N1,N2,tau)","(N3,N6,tau)","(N3,N4,tau)","(N2,ENSDARG,tau)","(N2,ENSAMXG,tau)","(N6,N7,tau)","(N6,ENSGACG,tau)","(N4,N5,tau)","(N4,ENSONIG,tau)","(N7,ENSTRUG,tau)","(N7,ENSTNIG,tau)","(N5,ENSXMAG,tau)","(N5,ENSORLG,tau)"],[0.386857392829246,0.344305624143504,0.280575555493657,0.241386320063591,0.25853172860355,0.244745715553386,0.315937854259279,0.218708278433508,0.332422548270609,0.205468803185347,0.216982320159588,0.262413853380289,0.235296843293607,0.257274831835121]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>average<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":1},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.205469 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.386857 - value, 0)/0.181389 * 100 + '%, lightblue ' + Math.max(0.386857 - value, 0)/0.181389 * 100 + '%)','background-size':'98% 88%','background-repeat':'no-repeat','background-position':'center'});\n}"}},"evals":["options.columnDefs.0.render","options.rowCallback"],"jsHooks":[]}</script>
+<!-- htmlwidget-sizing-policy-base64 PHNjcmlwdCB0eXBlPSJhcHBsaWNhdGlvbi9odG1sd2lkZ2V0LXNpemluZyIgZGF0YS1mb3I9Imh0bWx3aWRnZXQtY2FkZGIzNDgxMDhhNDBlNTZhYzUiPnsidmlld2VyIjp7IndpZHRoIjoiYXV0byIsImhlaWdodCI6MzUwLCJwYWRkaW5nIjoxNSwiZmlsbCI6dHJ1ZX0sImJyb3dzZXIiOnsid2lkdGgiOiJhdXRvIiwiaGVpZ2h0Ijo1MDAsInBhZGRpbmciOjQwLCJmaWxsIjpmYWxzZX19PC9zY3JpcHQ+ -->
+</body>
+</html>

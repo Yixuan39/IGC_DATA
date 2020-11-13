@@ -1,0 +1,7 @@
+"0","datatable(IGC_List2, colnames = c(""N2ENSDARG"", ""N2ENSAMXG"", ""N6ENSGACG"", ""N4ENSONIG"", ""N7ENSTRUG"", ""N7ENSTNIG"", ""N5ENSXMAG"", ""N5ENSORLG"")) %>% "
+"0","  formatRound( columns = 1:8 , 3) %>% "
+"0","  formatStyle(colnames(IGC_List2)[1:ncol(IGC_List2)],"
+"0","              background = styleColorBar(IGC_List2$N2ENSDARG, 'lightblue'), "
+"0","              backgroundSize = '98% 88%', "
+"0","              backgroundRepeat = 'no-repeat',"
+"0","              backgroundPosition = 'center')"

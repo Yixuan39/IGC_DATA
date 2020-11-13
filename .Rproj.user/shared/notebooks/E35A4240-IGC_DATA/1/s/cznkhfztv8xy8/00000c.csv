@@ -1,0 +1,3 @@
+"0","new <- melt(MGstau, id.vars = ""branch"", value.name = ""tau"")"
+"0","colnames(new)[colnames(new) == ""variable""] <- ""gene"""
+"0","new"
