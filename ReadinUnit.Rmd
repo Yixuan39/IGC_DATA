@@ -1,0 +1,175 @@
+---
+title: "ReadinUnit"
+author: "Yixuan Yang"
+date: "11/25/2020"
+output: html_document
+---
+```{r}
+library(dplyr)
+```
+
+```{r Read_MG, echo=FALSE}
+MG211c3_i1 = NA
+MG214c3_i1 = NA
+MG222c3_i1 = NA
+MG223c3_i1 = NA
+MG337c3_i1 = NA
+MG479c3_i1 = NA
+MG521c3_i1 = NA
+MG526c3_i1 = NA
+MG561c3_i1 = NA
+MG735c3_i1 = NA
+MG755c3_i1 = NA
+MG852c3_i1 = NA
+MG1050c3_i1 = NA
+MG1053c3_i1 = NA
+MG1215c3_i1 = NA
+MG2129c3_i1 = NA
+MG2158c3_i1 = NA
+MG2210c3_i1 = NA
+MG2214c3_i1 = NA
+MG2321c3_i1 = NA
+MG2358c3_i1 = NA
+MG2371c3_i1 = NA
+MG2382c3_i1 = NA
+MG2861c3_i1 = NA
+MG3278c3_i1 = NA
+MG3295c3_i1 = NA
+MG3309c3_i1 = NA
+MG3337c3_i1 = NA
+MG3346c3_i1 = NA
+MG3347c3_i1 = NA
+MG3390c3_i1 = NA
+MG3994c3_i1 = NA
+MG4025c3_i1 = NA
+MG4031c3_i1 = NA
+MG4063c3_i1 = NA
+MG4268c3_i1 = NA
+MG4287c3_i1 = NA
+MG4494c3_i1 = NA
+MG4553c3_i1 = NA
+MG4570c3_i1 = NA
+MG4932c3_i1 = NA
+MG5153c3_i1 = NA
+MG5233c3_i1 = NA
+MG5316c3_i1 = NA
+MG5550c3_i1 = NA
+```
+
+```{r}
+MG211c3_i1  <- readLines("./case3(1)/211MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG214c3_i1  <- readLines("./case3(1)/214MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+#MG222c3_i1  <- readLines("./case3(1)/222MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG223c3_i1  <- readLines("./case3(1)/223MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG337c3_i1  <- readLines("./case3(1)/337MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+#MG479c3_i1  <- readLines("./case3(1)/479MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG521c3_i1  <- readLines("./case3(1)/521MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG526c3_i1  <- readLines("./case3(1)/526MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG561c3_i1  <- readLines("./case3(1)/561MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG735c3_i1  <- readLines("./case3(1)/735MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG755c3_i1  <- readLines("./case3(1)/755MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG852c3_i1  <- readLines("./case3(1)/852MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
+MG1050c3_i1 <- readLines("./case3(1)/1050MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG1053c3_i1 <- readLines("./case3(1)/1053MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG1215c3_i1 <- readLines("./case3(1)/1215MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG2129c3_i1 <- readLines("./case3(1)/2129MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG2158c3_i1 <- readLines("./case3(1)/2158MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG2210c3_i1 <- readLines("./case3(1)/2210MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG2214c3_i1 <- readLines("./case3(1)/2214MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG2321c3_i1 <- readLines("./case3(1)/2321MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG2358c3_i1 <- readLines("./case3(1)/2358MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG2371c3_i1 <- readLines("./case3(1)/2371MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG2382c3_i1 <- readLines("./case3(1)/2382MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG2861c3_i1 <- readLines("./case3(1)/2861MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG3278c3_i1 <- readLines("./case3(1)/3278MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG3295c3_i1 <- readLines("./case3(1)/3295MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG3309c3_i1 <- readLines("./case3(1)/3309MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG3337c3_i1 <- readLines("./case3(1)/3337MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG3346c3_i1 <- readLines("./case3(1)/3346MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG3347c3_i1 <- readLines("./case3(1)/3347MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG3390c3_i1 <- readLines("./case3(1)/3390MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG3994c3_i1 <- readLines("./case3(1)/3994MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG4025c3_i1 <- readLines("./case3(1)/4025MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG4031c3_i1 <- readLines("./case3(1)/4031MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG4063c3_i1 <- readLines("./case3(1)/4063MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG4268c3_i1 <- readLines("./case3(1)/4268MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG4287c3_i1 <- readLines("./case3(1)/4287MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG4494c3_i1 <- readLines("./case3(1)/4494MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG4553c3_i1 <- readLines("./case3(1)/4553MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG4570c3_i1 <- readLines("./case3(1)/4570MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG4932c3_i1 <- readLines("./case3(1)/4932MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG5153c3_i1 <- readLines("./case3(1)/5153MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG5233c3_i1 <- readLines("./case3(1)/5233MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+#MG5316c3_i1 <- readLines("./case3(1)/5316MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG5550c3_i1 <- readLines("./case3(1)/5550MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+
+MGcase3_1 <- cbind(
+                   MG211c3_i1, 
+                   MG214c3_i1, 
+                   MG222c3_i1, 
+                   MG223c3_i1, 
+                   MG337c3_i1, 
+                   MG479c3_i1, 
+                   MG521c3_i1, 
+                   MG526c3_i1, 
+                   MG561c3_i1, 
+                   MG735c3_i1, 
+                   MG755c3_i1, 
+                   MG852c3_i1, 
+                   MG1050c3_i1,
+                   MG1053c3_i1, 
+                   MG1215c3_i1, 
+                   MG2129c3_i1, 
+                   MG2158c3_i1, 
+                   MG2210c3_i1, 
+                   MG2214c3_i1, 
+                   MG2321c3_i1, 
+                   MG2358c3_i1, 
+                   MG2371c3_i1, 
+                   MG2382c3_i1, 
+                   MG2861c3_i1,
+                   MG3278c3_i1, 
+                   MG3295c3_i1, 
+                   MG3309c3_i1, 
+                   MG3337c3_i1, 
+                   MG3346c3_i1, 
+                   MG3347c3_i1, 
+                   MG3390c3_i1, 
+                   MG3994c3_i1, 
+                   MG4025c3_i1, 
+                   MG4031c3_i1, 
+                   MG4063c3_i1,
+                   MG4268c3_i1, 
+                   MG4287c3_i1, 
+                   MG4494c3_i1, 
+                   MG4553c3_i1, 
+                   MG4570c3_i1, 
+                   MG4932c3_i1, 
+                   MG5153c3_i1, 
+                   MG5233c3_i1, 
+                   MG5316c3_i1, 
+                   MG5550c3_i1
+                   ) %>% data.frame()
+rownames(MGcase3_1) <- NameList
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

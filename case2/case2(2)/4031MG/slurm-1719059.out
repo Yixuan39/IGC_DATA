@@ -1,0 +1,121 @@
+/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py:60: RuntimeWarning: overflow encountered in multiply
+  return self._R.dot(other) + self._d[:, np.newaxis] * other
+/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py:60: RuntimeWarning: invalid value encountered in add
+  return self._R.dot(other) + self._d[:, np.newaxis] * other
+/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py:65: RuntimeWarning: overflow encountered in multiply
+  return self._RT.dot(other) + self._d[:, np.newaxis] * other
+/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py:65: RuntimeWarning: invalid value encountered in add
+  return self._RT.dot(other) + self._d[:, np.newaxis] * other
+number of sites to be analyzed:  174
+log likelihood =  -16216.910479746439
+Edge derivatives =  [76.9141097354561, 85.89020260172708, 64.74644958224253, 51.837960548327665, 154.94669703201748, 156.82461751592862, 222.3378471264175, 176.62855755580017, 66.54066067877342, 103.88252113684229, 54.671815220674404, 82.54188855079202, 77.94341170682218, 78.58042174279962, 138.77129073754242, 137.0033782648358]
+other derivatives: [ 184.34893718  161.75945348 -108.70826372 -111.20282579  572.15765992
+  145.24994185]
+Current x array =  [-0.62498103 -0.85257492 -0.5658183   0.69314718 -2.30258509  0.
+ -6.90775528 -6.90775528 -6.90775528 -6.90775528 -6.90775528 -6.90775528
+ -6.90775528 -6.90775528 -6.90775528 -6.90775528 -6.90775528 -6.90775528
+ -6.90775528 -6.90775528 -6.90775528 -6.90775528]
+log likelihood =  -15546.740432891991
+Edge derivatives =  [80.34962678915956, 84.59563775779041, 64.63798521420178, 50.50135873828597, 154.01843131562126, 158.49445418461968, 222.7405590530465, 175.76920359834781, 66.1148558708172, 103.55431610871491, 53.63109805420052, 82.26213890959258, 77.7988158990599, 78.48256735658865, 138.985488984552, 136.8045414403316]
+other derivatives: [160.39120965 139.42462829 -74.3812052  -38.13020157 337.36832847
+ 157.56959328]
+Current x array =  [-0.62422363 -0.85151771 -0.70901633  0.54666314 -1.5488995   0.00922088
+ -6.8064387  -6.79461477 -6.82246678 -6.83947074 -6.70364879 -6.70117506
+ -6.61487651 -6.67508794 -6.82010332 -6.77091405 -6.83573779 -6.7990254
+ -6.80508283 -6.80424372 -6.72495615 -6.72728497]
+log likelihood =  -13851.457554780238
+Edge derivatives =  [108.33490639290969, 78.91266147046375, 58.11532893494043, 38.2196091765247, 140.3829033786907, 160.48467031242748, 217.6233598921741, 163.83283324357112, 56.77033059803069, 108.43400202880522, 46.19764751760583, 84.27070106405785, 80.61274960781859, 66.74515303738745, 126.78468465012736, 136.19730242374624]
+other derivatives: [-7388.97815609  7456.04957046   234.24490792  -175.18505047
+  -348.47362258   220.36874725]
+Current x array =  [-0.05       -0.05       -1.25329117  0.44920839  0.6608961   0.64334622
+ -6.08588813 -6.05206189 -6.25221337 -6.39803142 -5.34704958 -5.29655964
+ -4.64725912 -5.12625268 -6.23785104 -5.8578359  -6.36570154 -6.07375083
+ -6.11876706 -6.11173898 -5.49732508 -5.52025854]
+log likelihood =  -13779.481526720021
+Edge derivatives =  [111.04561096276767, 77.70165282877929, 58.486927015978814, 37.906958223741015, 140.02031106994588, 161.54076661822285, 218.05821424113273, 162.67495535807313, 56.52618982161548, 107.60216579924078, 46.33029834105888, 83.46119323104723, 80.2622499918771, 67.09993656036517, 126.44843035517823, 136.18947419741335]
+other derivatives: [-4176.27852585  5461.19008504   232.70586098   -69.55960998
+  -379.10649553   220.90735001]
+Current x array =  [-0.06411025 -0.05       -1.27838166  0.41989235  0.79857011  0.64129208
+ -6.06998801 -6.03395117 -6.23863298 -6.38706935 -5.31449409 -5.26379434
+ -4.60066149 -5.08915236 -6.2238731  -5.83601296 -6.35416169 -6.05641211
+ -6.10240249 -6.09526502 -5.46825111 -5.49150628]
+log likelihood =  -13741.34970246152
+Edge derivatives =  [113.36357839838043, 76.64468182726135, 58.77121143823804, 37.651690714603234, 139.738070919513, 162.32978645423808, 218.31568105833674, 161.69773240616644, 56.361819692584106, 106.92971211778617, 46.39135627891637, 82.87149895725585, 79.96926140978404, 67.33737031510597, 126.13954496849111, 136.0764974037937]
+other derivatives: [-2459.4784918   3928.37064283   231.92478693    10.49447746
+  -398.67336454   221.08506528]
+Current x array =  [-0.07730494 -0.05       -1.29808455  0.39777198  0.90726363  0.64273011
+ -6.05528928 -6.0176641  -6.22637003 -6.37727007 -5.28513659 -5.23403575
+ -4.55848662 -5.055678   -6.21128248 -5.81627269 -6.34380289 -6.0407367
+ -6.08759493 -6.08040121 -5.4419742  -5.46550146]
+log likelihood =  -13711.385646045905
+Edge derivatives =  [115.3090992515866, 75.71901272878628, 58.95495232736697, 37.41124397027342, 139.56044831994578, 162.96118743208928, 218.41300273752407, 160.8346349254923, 56.22941924942929, 106.3342509339035, 46.38872689052122, 82.41002250886507, 79.69685322851308, 67.52873787103883, 125.83245714943364, 135.90924986846514]
+other derivatives: [-1403.52294693  2670.50800176   231.22829589    75.55154298
+  -412.0869562    220.73018044]
+Current x array =  [-0.09070081 -0.05       -1.31307536  0.38291022  0.99072487  0.64937202
+ -6.04011444 -6.00155935 -6.21416038 -6.367671   -5.25597289 -5.20413742
+ -4.5163464  -5.02239829 -6.19879662 -5.79657068 -6.33358747 -6.02510449
+ -6.07280776 -6.06562053 -5.41577712 -5.43954921]
+log likelihood =  -13667.16401796414
+Edge derivatives =  [117.45709043576694, 74.6390091553306, 59.042596260183956, 37.058177618776526, 139.46131511504208, 163.66451695494567, 218.29872494689758, 159.75833649921074, 56.06678457518852, 105.5766394685122, 46.28937843479188, 81.90736417524641, 79.33964919657689, 67.74990554845178, 125.39484136750609, 135.6179520671537]
+other derivatives: [-527.01871027 1252.6048522   229.99884095  147.95896277 -424.62743295
+  219.37121346]
+Current x array =  [-0.11027856 -0.05       -1.32715162  0.3735489   1.07052818  0.66770939
+ -6.01718061 -5.97836996 -6.19643487 -6.3539991  -5.2137453  -5.16028335
+ -4.45492438 -4.97417087 -6.18075372 -5.76789386 -6.3189221  -6.00237169
+ -6.05127004 -6.0441922  -5.37768943 -5.40177552]
+log likelihood =  -13572.134711402676
+Edge derivatives =  [120.44686871753242, 73.04006740043899, 58.864498966052736, 36.31664581472114, 139.41740661297666, 164.57811020550128, 217.3697231167896, 157.80025235665255, 55.74020555978463, 104.25273650862317, 45.86046672036221, 81.15849258776711, 78.71689458948913, 67.99143575674076, 124.47549470791476, 134.87301838945493]
+other derivatives: [ 214.46539904 -694.16892075  227.28600015  243.688919   -438.9530659
+  214.60546122]
+Current x array =  [-0.1497311  -0.05       -1.34172428  0.37690272  1.15685126  0.7199507
+ -5.96958033 -5.932219   -6.16089458 -6.3270574  -5.12927157 -5.07155004
+ -4.33133675 -4.87763157 -6.14472526 -5.71026832 -6.28981227 -5.95672462
+ -6.00796314 -6.00127722 -5.30122344 -5.32586654]
+Traceback (most recent call last):
+  File "/var/lib/slurm-llnl/slurmd/job1719059/slurm_script", line 29, in <module>
+    test.get_mle()
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 899, in get_mle
+    result = scipy.optimize.minimize(f, guess_x, jac = True, method = 'L-BFGS-B', bounds = bnds)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/_minimize.py", line 603, in minimize
+    callback=callback, **options)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/lbfgsb.py", line 335, in _minimize_lbfgsb
+    f, g = func_and_grad(x)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/lbfgsb.py", line 285, in func_and_grad
+    f = fun(x, *args)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/optimize.py", line 293, in function_wrapper
+    return function(*(wrapper_args + args))
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/optimize.py", line 63, in __call__
+    fg = self.fun(x, *args)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 757, in objective_and_gradient
+    f, g = self.loglikelihood_and_gradient(display = display)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 675, in loglikelihood_and_gradient
+    ll, edge_derivs = fn(edge_derivative = True)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 597, in _loglikelihood2
+    j_out = jsonctmctree.interface.process_json_in(j_in)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/interface.py", line 130, in process_json_in
+    return impl_v2.process_json_in(j_in, debug=debug)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/impl_v2.py", line 702, in process_json_in
+    return Reactor(toplevel.scene, debug=debug).main(toplevel.requests)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/impl_v2.py", line 687, in main
+    self.react(requests, responses)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/impl_v2.py", line 666, in react
+    if self._create_node_to_conditional_likelihoods(unmet_core_requests):
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/impl_v2.py", line 308, in _create_node_to_conditional_likelihoods
+    self.scene.observed_data.iid_observations,
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/common_likelihood.py", line 252, in get_conditional_likelihoods
+    arr = expm_objects[edge_process].expm_mul(edge_rate, arr)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/expm_helpers.py", line 177, in expm_mul
+    return P.dot(A)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/basic_ops.py", line 25, in dot
+    return self._matmat(other)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py", line 311, in _matmat
+    return self._P._parameterized_matmat(self._t, B)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py", line 264, in _parameterized_matmat
+    self._A, self._mu, self._forward_iteration_stash, t, B)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py", line 171, in _expm_product_helper
+    m, s = iteration_stash.fragment_3_1(n0, t)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/experimental.py", line 115, in fragment_3_1
+    m, value = self.cmstar(t)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/experimental.py", line 160, in cmstar
+    value = int(M[r, c])
+ValueError: cannot convert float NaN to integer

@@ -1,0 +1,5 @@
+library(dplyr)
+MG_i3_4553 <- readLines("./MG4553/4553MG_3/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG_i4_4553 <- readLines("./MG4553/4553MG_4/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG_i5_4553 <- readLines("./MG4553/4553MG_5/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
+MG_i6_4553 <- readLines("./MG4553/4553MG_6/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()

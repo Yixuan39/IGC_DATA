@@ -11,69 +11,22 @@ library(dplyr)
 library(DT)
 ```
 
-```{r Read_MG, echo=FALSE}
-MG_i1_211  <- readLines("./MG_initial_change1/211MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_214  <- readLines("./MG_initial_change1/214MG2/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_222  <- readLines("./MG_initial_change1/222MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_223  <- readLines("./MG_initial_change1/223MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_337  <- readLines("./MG_initial_change1/337MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_479  <- readLines("./MG_initial_change1/479MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_521  <- readLines("./MG_initial_change1/521MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_526  <- readLines("./MG_initial_change1/526MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_561  <- readLines("./MG_initial_change1/561MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_735  <- readLines("./MG_initial_change1/735MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_755  <- readLines("./MG_initial_change1/755MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_852  <- readLines("./MG_initial_change1/852MG/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric()
-MG_i1_1050 <- readLines("./MG_initial_change1/1050MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-#MG_i1_1053 <- readLines("./MG_initial_change1/1053MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_1215 <- readLines("./MG_initial_change1/1215MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_2129 <- readLines("./MG_initial_change1/2129MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_2158 <- readLines("./MG_initial_change1/2158MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_2210 <- readLines("./MG_initial_change1/2210MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_2214 <- readLines("./MG_initial_change1/2214MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_2321 <- readLines("./MG_initial_change1/2321MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_2358 <- readLines("./MG_initial_change1/2358MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_2371 <- readLines("./MG_initial_change1/2371MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_2382 <- readLines("./MG_initial_change1/2382MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_2861 <- readLines("./MG_initial_change1/2861MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-#MG_i1_3278 <- readLines("./MG_initial_change1/3278MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_3295 <- readLines("./MG_initial_change1/3295MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_3309 <- readLines("./MG_initial_change1/3309MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_3337 <- readLines("./MG_initial_change1/3337MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_3346 <- readLines("./MG_initial_change1/3346MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_3347 <- readLines("./MG_initial_change1/3347MG2/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_3390 <- readLines("./MG_initial_change1/3390MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_3994 <- readLines("./MG_initial_change1/3994MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_4025 <- readLines("./MG_initial_change1/4025MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_4031 <- readLines("./MG_initial_change1/4031MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i2_4063 <- readLines("./MG_initial_change1/4063MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-#MG_i1_4268 <- readLines("./MG_initial_change1/4268MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_4287 <- readLines("./MG_initial_change1/4287MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_4494 <- readLines("./MG_initial_change1/4494MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i2_4553 <- readLines("./MG_initial_change1/4553MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_4570 <- readLines("./MG_initial_change1/4570MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_4932 <- readLines("./MG_initial_change1/4932MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_5153 <- readLines("./MG_initial_change1/5153MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_5233 <- readLines("./MG_initial_change1/5233MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_5316 <- readLines("./MG_initial_change1/5316MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1_5550 <- readLines("./MG_initial_change1/5550MG/save/MG94_01_02_nonclockqq_summary.txt", n = 89) %>% as.numeric()
-MG_i1 <- cbind(MG_i1_211, MG_i1_214, MG_i1_222, MG_i1_223, MG_i1_337, MG_i1_479, MG_i1_521, MG_i1_526, MG_i1_561, MG_i1_735, MG_i1_755, MG_i1_852, MG_i1_1050,
-            MG_i1_1215, MG_i1_2129, MG_i1_2158, MG_i1_2210, MG_i1_2214, MG_i1_2321, MG_i1_2358, MG_i1_2371, MG_i1_2382, MG_i1_2861,
-            MG_i1_3295, MG_i1_3309, MG_i1_3337, MG_i1_3346, MG_i1_3347, MG_i1_3390, MG_i1_3994, MG_i1_4025, MG_i1_4031,MG_i1_4063,
-            MG_i1_4287, MG_i1_4494, MG_i1_4553, MG_i1_4570, MG_i1_4932, MG_i1_5153, MG_i1_5233, MG_i1_5316, MG_i1_5550)
-rownames(MG_i1) <- NameList
-```
+
 
 difference in log likelihood
+
+# For case 1, we use the default initial value tau=0.6, omega=0.9, kappa=2.1, inibl=0.1.
+# For case 2, we use the initial value tau=1, omega=0.1, kappa=2, inibl=0.01.
+## we don't have 1053, 3278, and 4268 for this case.
+# For case 3, we use the initial value tau=0.7, omega=0.3, kappa=2, inibl=0.1.
+# For case 4, we use the initial value tau=0.2, omega=0.1, kappa=1.3, inibl=0.05
 ```{r}
-MGcurrent <- MG[,-c(14, 25, 36)]
-MG_i1current <- MG_i1[,]
-lldif <- data.frame(MGcurrent[2,], MG_i1current[2,], abs(MGcurrent[2,] - MG_i1current[2,]))
-colnames(lldif) <- c("MG", "MG_i1", "difference")
+lldif <- data.frame(MG[2,], MGcase2[2,], abs(MG[2,] - MGcase2_3[2,]), abs(MGcase2[2,]-MGcase2_2[2,]), abs(MGcase2_2[2,]-MGcase2_3[2,]))
+colnames(lldif) <- c("MG", "MG case2", "difference", "dif_i1i2", "dif_i2i3")
 datatable(lldif) %>%
-  formatRound( columns = 1:3 , 5) %>% 
-  formatStyle("difference", 
-              background = styleColorBar(lldif$difference, 'lightblue'), 
+  formatRound( columns = 1:5 , 5) %>% 
+  formatStyle(c("difference", "dif_i1i2"), 
+              background = styleColorBar(lldif$dif_i1i2 , 'lightblue'), 
               backgroundSize = '98% 88%', 
               backgroundRepeat = 'no-repeat',
               backgroundPosition = 'center')
@@ -82,9 +35,9 @@ datatable(lldif) %>%
 
 ```{r}
 
-kappadif <- abs(MGcurrent[7,] - MG_i1current[7,])
-omegadif <- abs(MGcurrent[8,] - MG_i1current[8,])
-taudif   <- abs(MGcurrent[9,] - MG_i1current[9,])
+kappadif <- abs(MG[7,] - MGcase2[7,])
+omegadif <- abs(MG[8,] - MGcase2[8,])
+taudif   <- abs(MG[9,] - MGcase2[9,])
 otherParameter <- cbind(kappadif, omegadif, taudif) %>% data.frame()
 colnames(otherParameter) <- c("kappa", "omega", "tau")
 datatable(otherParameter) %>%
@@ -95,7 +48,14 @@ datatable(otherParameter) %>%
               backgroundRepeat = 'no-repeat',
               backgroundPosition = 'center')
 ```
+```{r}
+MG4553iterations <- c(MG4553, MG_i2_4553, MG_i3_4553, MG_i4_4553, MG_i5_4553, MG_i6_4553) %>% matrix(byrow = FALSE, ncol = 6)
+for (i in MG4553iterations[2,]){
+    print(MG4553[2]-i)
+}
+abs(MG4553[2]-MG4553iterations[2,])
 
+```
 
 
 
