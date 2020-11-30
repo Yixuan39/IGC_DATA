@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2a60288f-7e1c-40a4-9fc0-755a668fa888" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="JupyterTrust" id="faa968c7-be75-47a2-ae32-0c54303fb07d" />
+  <component name="ProjectId" id="1itfR57hWvk9oPwVxaMcNLR7c9g" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.Run_IS_IGC_Old">
+    <configuration name="Run_IS_IGC_Old (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MG" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/3278MG" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/3278MG/Run_IS_IGC_Old.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run_IS_IGC_Old (3)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MG" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/3278MG4" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/3278MG4/Run_IS_IGC_Old.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run_IS_IGC_Old (4)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MG" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/4268MG5" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/4268MG5/Run_IS_IGC_Old.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run_IS_IGC_Old (5)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MG" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/1053MG4" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1053MG4/Run_IS_IGC_Old.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run_IS_IGC_Old" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MG" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/3278MG5" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/3278MG5/Run_IS_IGC_Old.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Run_IS_IGC_Old" />
+        <item itemvalue="Python.Run_IS_IGC_Old (3)" />
+        <item itemvalue="Python.Run_IS_IGC_Old (5)" />
+        <item itemvalue="Python.Run_IS_IGC_Old (4)" />
+        <item itemvalue="Python.Run_IS_IGC_Old (2)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a60288f-7e1c-40a4-9fc0-755a668fa888" name="Default Changelist" comment="" />
+      <created>1602731797528</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602731797528</updated>
+      <workItem from="1602731798580" duration="1427000" />
+      <workItem from="1603420097301" duration="71000" />
+      <workItem from="1603651378664" duration="837000" />
+      <workItem from="1604173156686" duration="2423000" />
+      <workItem from="1604363544520" duration="737000" />
+      <workItem from="1604421552974" duration="131000" />
+      <workItem from="1604514406444" duration="267000" />
+      <workItem from="1604683450948" duration="2225000" />
+      <workItem from="1604867555968" duration="1334000" />
+      <workItem from="1605368447369" duration="724000" />
+      <workItem from="1605469381502" duration="904000" />
+      <workItem from="1605625006305" duration="261000" />
+      <workItem from="1605641122151" duration="307000" />
+      <workItem from="1605644629891" duration="5562000" />
+      <workItem from="1605900401207" duration="1262000" />
+      <workItem from="1606150861445" duration="1045000" />
+      <workItem from="1606177734953" duration="33000" />
+      <workItem from="1606433735691" duration="1391000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="968" y="460" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1605978081034">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="968" y="460" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/2560.485.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1605978081034" />
+    <state width="1440" height="517" key="GridCell.Tab.0.bottom" timestamp="1605848757009">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="517" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605848757009" />
+    <state width="1440" height="209" key="GridCell.Tab.0.bottom/0.25.1440.808@0.25.1440.808" timestamp="1605641287903" />
+    <state width="1440" height="209" key="GridCell.Tab.0.bottom/0.25.1440.813@0.25.1440.813" timestamp="1605641454015" />
+    <state width="2560" height="313" key="GridCell.Tab.0.bottom/2560.485.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1605728464052" />
+    <state width="2560" height="431" key="GridCell.Tab.0.bottom/2560.540.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1603661609787" />
+    <state width="1440" height="517" key="GridCell.Tab.0.center" timestamp="1605848757008">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="517" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605848757008" />
+    <state width="1440" height="209" key="GridCell.Tab.0.center/0.25.1440.808@0.25.1440.808" timestamp="1605641287902" />
+    <state width="1440" height="209" key="GridCell.Tab.0.center/0.25.1440.813@0.25.1440.813" timestamp="1605641454014" />
+    <state width="2560" height="313" key="GridCell.Tab.0.center/2560.485.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1605728464050" />
+    <state width="2560" height="431" key="GridCell.Tab.0.center/2560.540.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1603661609785" />
+    <state width="1440" height="517" key="GridCell.Tab.0.left" timestamp="1605848757007">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="517" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605848757007" />
+    <state width="1440" height="209" key="GridCell.Tab.0.left/0.25.1440.808@0.25.1440.808" timestamp="1605641287901" />
+    <state width="1440" height="209" key="GridCell.Tab.0.left/0.25.1440.813@0.25.1440.813" timestamp="1605641454014" />
+    <state width="2560" height="313" key="GridCell.Tab.0.left/2560.485.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1605728464049" />
+    <state width="2560" height="431" key="GridCell.Tab.0.left/2560.540.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1603661609785" />
+    <state width="1440" height="517" key="GridCell.Tab.0.right" timestamp="1605848757008">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="517" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605848757008" />
+    <state width="1440" height="209" key="GridCell.Tab.0.right/0.25.1440.808@0.25.1440.808" timestamp="1605641287903" />
+    <state width="1440" height="209" key="GridCell.Tab.0.right/0.25.1440.813@0.25.1440.813" timestamp="1605641454015" />
+    <state width="2560" height="313" key="GridCell.Tab.0.right/2560.485.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1605728464051" />
+    <state width="2560" height="431" key="GridCell.Tab.0.right/2560.540.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1603661609786" />
+    <state x="789" y="359" key="SettingsEditor" timestamp="1603661111075">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="789" y="359" key="SettingsEditor/2560.540.1440.900/0.0.2560.1440@0.0.2560.1440" timestamp="1603661111075" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MG$Run_IS_IGC_Old__4_.coverage" NAME="Run_IS_IGC_Old (4) Coverage Results" MODIFIED="1605661594574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/4268MG5" />
+    <SUITE FILE_PATH="coverage/MG$Run_IS_IGC_Old__1_.coverage" NAME="Run_IS_IGC_Old (1) Coverage Results" MODIFIED="1605641177582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/4268MG" />
+    <SUITE FILE_PATH="coverage/MG$Run_IS_IGC_Old__3_.coverage" NAME="Run_IS_IGC_Old (3) Coverage Results" MODIFIED="1605728464033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/3278MG4" />
+    <SUITE FILE_PATH="coverage/MG$Run_IS_IGC_Old.coverage" NAME="Run_IS_IGC_Old Coverage Results" MODIFIED="1605803006862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/3278MG5" />
+    <SUITE FILE_PATH="coverage/MG$Run_IS_IGC_Old__5_.coverage" NAME="Run_IS_IGC_Old (5) Coverage Results" MODIFIED="1605716495127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/1053MG4" />
+    <SUITE FILE_PATH="coverage/MG$Run_IS_IGC_Old__2_.coverage" NAME="Run_IS_IGC_Old (2) Coverage Results" MODIFIED="1605641287870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/3278MG" />
+  </component>
+</project>
