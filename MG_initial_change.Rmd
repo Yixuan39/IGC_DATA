@@ -21,12 +21,12 @@ difference in log likelihood
 # For case 3, we use the initial value tau=0.7, omega=0.3, kappa=2, inibl=0.1.
 # For case 4, we use the initial value tau=0.2, omega=0.1, kappa=1.3, inibl=0.05
 ```{r}
-lldif <- data.frame(MG[2,], MGcase2[2,], abs(MG[2,] - MGcase2_3[2,]), abs(MGcase2[2,]-MGcase2_2[2,]), abs(MGcase2_2[2,]-MGcase2_3[2,]))
-colnames(lldif) <- c("MG", "MG case2", "difference", "dif_i1i2", "dif_i2i3")
+lldif <- data.frame(MGcase2[2,], MGc4_i1[2,], abs(MGcase2[2,] - MGc4_i1[2,]), abs(MGcase2[2,]-MGcase2_2[2,]), abs(MGcase2_2[2,]-MGcase2_3[2,]))
+colnames(lldif) <- c("MG", "MG case4", "difference", "dif_i1i2", "dif_i2i3")
 datatable(lldif) %>%
   formatRound( columns = 1:5 , 5) %>% 
   formatStyle(c("difference", "dif_i1i2"), 
-              background = styleColorBar(lldif$dif_i1i2 , 'lightblue'), 
+              background = styleColorBar(lldif$difference , 'lightblue'), 
               backgroundSize = '98% 88%', 
               backgroundRepeat = 'no-repeat',
               backgroundPosition = 'center')
@@ -48,14 +48,7 @@ datatable(otherParameter) %>%
               backgroundRepeat = 'no-repeat',
               backgroundPosition = 'center')
 ```
-```{r}
-MG4553iterations <- c(MG4553, MG_i2_4553, MG_i3_4553, MG_i4_4553, MG_i5_4553, MG_i6_4553) %>% matrix(byrow = FALSE, ncol = 6)
-for (i in MG4553iterations[2,]){
-    print(MG4553[2]-i)
-}
-abs(MG4553[2]-MG4553iterations[2,])
 
-```
 
 
 

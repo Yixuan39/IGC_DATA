@@ -1,0 +1,14 @@
+---
+title: "paralogSwapping"
+author: "Yixuan Yang"
+date: "12/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+swcase1 <- Readin('swc1_i1', 'swcase1')
+```
