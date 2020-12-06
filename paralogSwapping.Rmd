@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# For case1, we use initial values tau=0.2, omega=0.1, kappa=1.3, inibl=0.05
 ```{r}
 swcase1 <- Readin('swc1_i1', 'swcase1')
 ```
