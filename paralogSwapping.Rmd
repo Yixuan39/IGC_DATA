@@ -2,14 +2,38 @@
 title: "paralogSwapping"
 author: "Yixuan Yang"
 date: "12/4/2020"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(DT)
+library(dplyr)
+load("./IGC_data1.1.RData")
 ```
 
-# For case1, we use initial values tau=0.2, omega=0.1, kappa=1.3, inibl=0.05
-```{r}
-swcase1 <- Readin('swc1_i1', 'swcase1')
+```{r folder names, echo=FALSE}
+swapNameList <- c('211', '214', '222', '223', '337', '479', '521', '526', '561', '735', '755', '852', '1050',
+            '1053', '1215', '2129', '2158', '2210', '2214', '2321', '2358', '2371', '2382', '2861',
+            '3278', '3295', '3309', '3337', '3346', '3347', '3390', '3994', '4025', '4031', '4063',
+            '4268', '4287', '4494', '4553', '4570', '4932', '5153', '5233', '5316', '5550')
 ```
+
+# For this table we use the initial value tau=0.6, omega=0.9, kappa=2.1, inibl=0.1, which is the defalut value in Xiang's software.
+I changed the column name since we swapped them. The original names should be "ll (N2,ENSDARG,1->2) (N6,ENSGACG,1->2) (N2,ENSDARG,2->1) (N6,ENSGACG,2->1)" for the first 5 columns.
+
+```{r, message=FALSE, echo=FALSE}
+newSwcase2 <- swcase2[c(2, 48, 51, 64, 67),] %>% t() %>% as.matrix()
+newMg <- MG[c(2, 48, 51, 64, 67),] %>% t() %>% as.matrix()
+swCompare <- cbind(newSwcase2, newMg) %>% as.data.frame()
+row.names(swCompare) <- List
+colnames(swCompare) <- c("swap-ll", "ENSGACG01 -> ENSDARG02", "ENSDARG01 -> ENSGACG02", "ENSDARG02 -> ENSGACG01", "ENSGACG02 -> ENSDARG01", "ll", "ENSDARG 01->02", "ENSGACG 01->02", "ENSDARG 02->01", "ENSGACG 02->01")
+datatable(swCompare) %>%
+  formatRound(1:10, 3)
+
+```
+
+

@@ -9,13 +9,13 @@ library(dplyr)
 ```
 
 ```{r}
-Readin <- function(iterations, caseName) {
-    List = c('MG211', 'MG214', 'MG222', 'MG223', 'MG337', 'MG479', 'MG521', 'MG526', 'MG561', 'MG735', 'MG755', 'MG852', 'MG1050', 'MG1053', 'MG1215', 'MG2129', 'MG2158', 'MG2210', 'MG2214', 'MG2321', 'MG2358', 'MG2371', 'MG2382', 'MG2861', 'MG3278', 'MG3295', 'MG3309', 'MG3337', 'MG3346', 'MG3347', 'MG3390', 'MG3994', 'MG4025', 'MG4031', 'MG4063', 'MG4268', 'MG4287', 'MG4494', 'MG4553', 'MG4570', 'MG4932', 'MG5153', 'MG5233', 'MG5316', 'MG5550')
+Readin <- function(list, iterations, caseName) {
+    
     columnNames = c()
     data = c()
     for (i in List) {
       
-      folderName = paste("/", substr(i, start = 3, stop = nchar(i)) , "MG", sep = "")
+      folderName = paste("/", substr(i, start = 3, stop = nchar(i)), sep = "")
       
       path = paste("./", caseName, folderName, "/save/MG94_01_02_nonclockqq_summary.txt", sep = "")
       numbers <- NA
@@ -35,6 +35,7 @@ Readin <- function(iterations, caseName) {
     return(data)
 }
 MGc4_i1 <- Readin('c4_i1', 'case4(1)')
+swcase2 <- Readin(list = swapNameList, 'swc2_i1', caseName = 'swcase2' )
 ```
 
 
