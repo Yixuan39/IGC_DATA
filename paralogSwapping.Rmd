@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(DT)
 library(dplyr)
-load("./IGC_data1.1.RData")
+
 ```
 
 ```{r folder names, echo=FALSE}
@@ -23,17 +23,54 @@ swapNameList <- c('211', '214', '222', '223', '337', '479', '521', '526', '561',
 ```
 
 # For this table we use the initial value tau=0.6, omega=0.9, kappa=2.1, inibl=0.1, which is the defalut value in Xiang's software.
-I changed the column name since we swapped them. The original names should be "ll (N2,ENSDARG,1->2) (N6,ENSGACG,1->2) (N2,ENSDARG,2->1) (N6,ENSGACG,2->1)" for the first 5 columns.
+# tau=0.01, omega=0.01, kappa=1.0, inibl=0.1
 
-```{r, message=FALSE, echo=FALSE}
-newSwcase2 <- swcase2[c(2, 48, 51, 64, 67),] %>% t() %>% as.matrix()
-newMg <- MG[c(2, 48, 51, 64, 67),] %>% t() %>% as.matrix()
-swCompare <- cbind(newSwcase2, newMg) %>% as.data.frame()
-row.names(swCompare) <- List
-colnames(swCompare) <- c("swap-ll", "ENSGACG01 -> ENSDARG02", "ENSDARG01 -> ENSGACG02", "ENSDARG02 -> ENSGACG01", "ENSGACG02 -> ENSDARG01", "ll", "ENSDARG 01->02", "ENSGACG 01->02", "ENSDARG 02->01", "ENSGACG 02->01")
-datatable(swCompare) %>%
-  formatRound(1:10, 3)
+```{r}
+SwapTest1 <- Readin4Swap(swapNameList, 'SwapT1', 'SwapTest1')
+NonSwapTest1 <- Readin4Swap(swapNameList, 'NSwapT1', 'SwapTest1NA')
+SwapTest2 <- Readin4Swap(swapNameList, 'SwapT2', 'SwapTest2')
+NonSwapTest2 <- Readin4Swap(swapNameList, 'NSwapT2', 'SwapTest2NA')
+NS2 <- Readin4Swap(swapNameList, 'NS2', 'NS2')
+NS2unswapped <- Readin4Swap(swapNameList, 'NS2un', 'NS2unswapped')
+NS1 <- Readin4Swap(swapNameList, 'NS1', 'NS1')
+NS1unswap <- Readin4Swap(swapNameList, 'NS1un', 'NS1unswap')
+iniC3 <- Readin4Swap(swapNameList, 'iniC3', 'iniC3')
+iniC3unswap <- Readin4Swap(swapNameList, 'iniC3un', 'iniC3unswap')
+```
+
+```{r}
+newNS2 <- NS2[c(2, 9),] %>% t() %>% as.matrix()
+newNS1 <- NS1[c(2, 9),] %>% t() %>% as.matrix()
+newNS2unswapped <- NS2unswapped[c(2, 9),] %>% t() %>% as.matrix()
+newNS1unswapped <- NS1unswap[c(2, 9),] %>% t() %>% as.matrix()
+swCompare1 <- cbind(newNS2, newNS2unswapped, NS2[2,]-NS2unswapped[2,], NS2[9,] - NS2unswapped[9,]) %>% as.data.frame()
+row.names(swCompare1) <- List
+datatable(swCompare1) %>% 
+  formatRound(columns = 1:6, 2)
+swCompare2 <- cbind(newNS2, newNS2unswapped, NS2[2,]-NS2unswapped[2,], NS2[9,] - NS2unswapped[9,]) %>% as.data.frame()
+row.names(swCompare2) <- List
+datatable(swCompare2) %>% 
+  formatRound(columns = 1:6, 2)
 
 ```
+
+
+
+```{r}
+NS2[9,]
+MGc4_i1[9,]
+MG[9,]
+```
+
+```{r}
+newiniC3 <- iniC3[c(2, 9),] %>%  t() %>% as.matrix()
+newiniC3unswap <- iniC3unswap[c(2, 9),] %>% t() %>% as.matrix()
+new <- cbind(newiniC3, newiniC3unswap) %>% as.data.frame()
+row.names(new) <- List
+colnames(new) <- c('swap_ll', 'swap_tau', 'unswap_ll', 'unswap_tau')
+datatable(new) %>% 
+  formatRound(columns = 1:4, 2)
+```
+
 
 

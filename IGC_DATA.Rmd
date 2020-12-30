@@ -54,12 +54,12 @@ datatable(total, colnames = "proportion") %>%
 ```
 ## Calculate proportion for each branch separately.  Plot those (ignore N0-N1 and ignore N0-outgroup)
 ```{r}
-IGCchangesSep <- function(x){
+IGCchangesSep <- function(x, dataset){
   one <- paste("(", x, ",1->2)",sep = "")
   two <- paste("(", x, ",2->1)",sep = "")
   mut <- paste("(", x, ",mut)",sep = "")
-  num <- MG[one,] + MG[two,]
-  den <- num + MG[mut,]
+  num <- dataset[one,] + dataset[two,]
+  den <- num + dataset[mut,]
   num/den
 }
 N1N3 <- IGCchangesSep("N1,N3") 
