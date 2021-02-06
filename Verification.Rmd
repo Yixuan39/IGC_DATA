@@ -1,0 +1,46 @@
+---
+title: "Verification"
+author: "Yixuan Yang"
+date: "1/18/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(dplyr)
+load("~/Desktop/IGC_DATA/IGC_data1.2.RData")
+NameList2 <- readLines(paste( "./verification/YBL087C_YER117W_Whole/save/MG94_YBL087C_YER117W_nonclockqq_summary.txt", sep = ""))
+NameList2 <- unlist(strsplit(NameList2[30], split=" "))
+NameList2 <- NameList2[!(NameList2 %in% NameList2[1])]
+YBL087C_YER117W_input <- readLines("./verification/YBL087C_YER117W_Whole/save/MG94_YBL087C_YER117W_nonclockqq_summary.txt", n = 69) %>% as.numeric() %>% as.matrix()
+YBL087C_YER117W_input_old <- readLines("./verification/YBL087C_YER117W_Whole_old/save/MG94_YBL087C_YER117W_nonclockqq_summary.txt", n = 69) %>% as.numeric() %>% as.matrix()
+YBL087C_YER117W_Whole_Xiang <- readLines("./verification/YBL087C_YER117W/MG94_YBL087C_YER117W_nonclock_summary.txt", n = 29) %>% as.numeric() %>% as.matrix()
+rownames(YBL087C_YER117W_Whole_Xiang) <- NameList3
+YBL087C_YER117W_Whole <- cbind(YBL087C_YER117W_input[c(1:9),], YBL087C_YER117W_input_old[c(1:9),], YBL087C_YER117W_Whole_Xiang[c(1:9),])
+colnames(YBL087C_YER117W_Whole)<- c('T','To', 'X')
+
+
+YBL087C_YER117W_input2 <- readLines("./verification/YBL087C_YER117W_Switch/save/MG94_YBL087C_YER117W_nonclockqq_summary.txt", n = 29) %>% as.numeric() %>% as.matrix()
+YBL087C_YER117W_Switched_Xiang <- readLines("./verification/YBL087C_YER117W/switched_MG94_YBL087C_YER117W_nonclock_summary.txt", n = 29) %>% as.numeric() %>% as.matrix()
+rownames(YBL087C_YER117W_input2) <- NameList4
+rownames(YBL087C_YER117W_Switched_Xiang) <- NameList5
+YBL087C_YER117W_Switch <- cbind(YBL087C_YER117W_input2[c(1:9),],YBL087C_YER117W_Switched_Xiang[c(1:9),])
+colnames(YBL087C_YER117W_Switch)<- c('T', 'X')
+```
+# Column 'T' for Tanchumin's outcome, 'X' for Xiang's outcome.
+# This is the unswapped data comparision
+```{r, echo=FALSE}
+YBL087C_YER117W_Whole
+```
+# This is the swapped data comparision
+```{r, echo=FALSE}
+YBL087C_YER117W_Switch
+```
+
+
+

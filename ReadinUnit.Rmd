@@ -77,6 +77,34 @@ Readin4Swap <- function(list, iterations, caseName) {
 }
 ```
 
+```{r}
+Readin4SwapClocked <- function(list, iterations, caseName) {
+    
+    columnNames = c()
+    data = c()
+    for (i in List) {
+      
+      folderName = paste("/", substr(i, start = 3, stop = nchar(i)), sep = "")
+      
+      path = paste("./", caseName, folderName, "/save/MG94_01_02_clock_summary.txt", sep = "")
+      numbers <- NA
+      tryCatch(numbers <- readLines(path,  n = (count - 1)) %>% as.numeric(), error=function(e){
+        message(" No data yet.")
+      })
+      
+      variableName = paste(i, iterations, sep = "")
+      columnNames <- append(columnNames, variableName)
+      data <- cbind(data, numbers)
+      
+    }
+    data <- matrix(data = data, ncol = 45, nrow = (count - 1), byrow = FALSE)
+    data.frame(data)
+    colnames(data) <- columnNames
+    rownames(data) <- NameList4Swap
+    return(data)
+}
+```
+
 ```{r Read_MG, echo=FALSE}
 MG211c4_i1 = NA
 MG214c4_i1 = NA

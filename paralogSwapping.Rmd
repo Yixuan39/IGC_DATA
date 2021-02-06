@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(DT)
 library(dplyr)
-
+load("IGC_data1.1.RData")
 ```
 
 ```{r folder names, echo=FALSE}
@@ -55,13 +55,6 @@ datatable(swCompare2) %>%
 ```
 
 
-
-```{r}
-NS2[9,]
-MGc4_i1[9,]
-MG[9,]
-```
-
 ```{r}
 newiniC3 <- iniC3[c(2, 9),] %>%  t() %>% as.matrix()
 newiniC3unswap <- iniC3unswap[c(2, 9),] %>% t() %>% as.matrix()
@@ -72,5 +65,29 @@ datatable(new) %>%
   formatRound(columns = 1:4, 2)
 ```
 
+
+```{r}
+Swapped_Clocked_1 <- Readin4SwapClocked(NameList4Swap, 'S_C_1', 'Swapped_Clocked_1')
+Unswapped_Clocked_1 <- Readin4SwapClocked(NameList4Swap, 'U_C_1', 'Unswapped_Clocked_1')
+```
+
+```{r}
+newSwapped_Clocked_1 <- Swapped_Clocked_1[c(2, 9),] %>%  t() %>% as.matrix()
+newUnswapped_Clocked_1 <- Unswapped_Clocked_1[c(2, 9),] %>% t() %>% as.matrix()
+new1 <- cbind(newUnswapped_Clocked_1, newSwapped_Clocked_1) %>% as.data.frame()
+rownames(new1) <- List
+colnames(new1) <- c('unswap_ll', 'unswap_tau', 'swap_ll', 'swap_tau')
+datatable(new1) %>% 
+  formatRound(columns = 1:4, 2)
+```
+```{r}
+difll <- new1[,1]-new1[,3]
+diftau <- new1[,2]-new1[,4]
+plot(difll,diftau,xlab = "difference of log-likelihood", ylab = "difference of estimated tau")
+x <- lm(diftau~difll)$coefficient %>% as.numeric()
+abline(x, col="red")
+new2 <- subset(new1, new1[,2]<0.5)
+plot(new2[,2],new2[,4])
+```
 
 

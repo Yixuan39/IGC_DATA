@@ -1,0 +1,112 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Verification},
+  pdfauthor={Yixuan Yang},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Verification}
+\author{Yixuan Yang}
+\date{1/18/2021}
+
+\begin{document}
+\maketitle
+
+\begin{verbatim}
+## Warning in function_list[[i]](value): NAs introduced by coercion
+\end{verbatim}
+
+\hypertarget{column-t-for-tanchumins-outcome-x-for-xiangs-outcome.}{%
+\section{Column `T' for Tanchumin's outcome, `X' for Xiang's
+outcome.}\label{column-t-for-tanchumins-outcome-x-for-xiangs-outcome.}}
+
+\hypertarget{this-is-the-unswapped-data-comparision}{%
+\section{This is the unswapped data
+comparision}\label{this-is-the-unswapped-data-comparision}}
+
+\begin{verbatim}
+##                    T             X
+## length  136.00000000  136.00000000
+## ll     -957.88350521 -957.88349460
+## pi_a      0.26469069    0.26470341
+## pi_c      0.18851447    0.18850503
+## pi_g      0.23595745    0.23594987
+## pi_t      0.31083739    0.31084168
+## kappa     6.44186440    6.44080013
+## omega     0.07388789    0.07389339
+## tau       3.83237524    3.83142435
+\end{verbatim}
+
+\hypertarget{this-is-the-swapped-data-comparision}{%
+\section{This is the swapped data
+comparision}\label{this-is-the-swapped-data-comparision}}
+
+\begin{verbatim}
+##                    T             X
+## length  136.00000000  136.00000000
+## ll     -990.48984542 -991.40427838
+## pi_a      0.26789452    0.26780576
+## pi_c      0.18306298    0.18412133
+## pi_g      0.23468489    0.23351606
+## pi_t      0.31435761    0.31455686
+## kappa     5.76050248    5.67467484
+## omega     0.07763527    0.07463289
+## tau       0.07195314    0.06166132
+\end{verbatim}
+
+\end{document}

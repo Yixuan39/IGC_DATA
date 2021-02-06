@@ -1,17 +1,18 @@
 ---
-title: "Untitled"
+title: "Numerical optimization"
 author: "Yixuan Yang"
 date: "10/31/2020"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(DT)
+load("IGC_data1.1.RData")
 ```
 
-```{r}
+```{r, echo=FALSE}
 List = c('MG211', 'MG214', 'MG222', 'MG223', 'MG337', 'MG479', 'MG521', 'MG526', 'MG561', 'MG735', 'MG755', 'MG852', 'MG1050', 'MG1053', 'MG1215', 'MG2129', 'MG2158', 'MG2210', 'MG2214', 'MG2321', 'MG2358', 'MG2371', 'MG2382', 'MG2861', 'MG3278', 'MG3295', 'MG3309', 'MG3337', 'MG3346', 'MG3347', 'MG3390', 'MG3994', 'MG4025', 'MG4031', 'MG4063', 'MG4268', 'MG4287', 'MG4494', 'MG4553', 'MG4570', 'MG4932', 'MG5153', 'MG5233', 'MG5316', 'MG5550')
 ```
 
@@ -23,7 +24,7 @@ difference in log likelihood
 ## we don't have 1053, 3278, and 4268 for this case.
 # For case 3, we use the initial value tau=0.7, omega=0.3, kappa=2, inibl=0.1.
 # For case 4, we use the initial value tau=0.2, omega=0.1, kappa=1.3, inibl=0.05
-```{r}
+```{r,echo=FALSE}
 lldif <- data.frame(MGcase2[2,], MGc4_i1[2,], abs(MGcase2[2,] - MGc4_i1[2,]), abs(MGcase2[2,]-MGcase2_2[2,]), abs(MGcase2_2[2,]-MGcase2_3[2,]))
 colnames(lldif) <- c("MG", "MG case4", "difference", "dif_i1i2", "dif_i2i3")
 datatable(lldif) %>%
@@ -36,7 +37,7 @@ datatable(lldif) %>%
 
 ```
 
-```{r}
+```{r, echo=FALSE}
 
 kappadif <- abs(MG[7,] - MGcase2[7,])
 omegadif <- abs(MG[8,] - MGcase2[8,])

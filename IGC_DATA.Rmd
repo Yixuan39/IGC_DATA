@@ -14,6 +14,7 @@ library(ggplot2)
 library(DT)
 library(tibble)
 library(reshape2)
+load("IGC_data1.1.RData")
 ```
 
 # Table to see log-likelihood 
@@ -36,7 +37,7 @@ qplot(MG["ll",], MG_Forced["ll",] ) + geom_abline(slope = 1, intercept = 0)
 
 # Proportion of post-duplication changes due to IGC (ignore branches that do not have duplication)
 ### IGCchanges function $\frac{\sum{1->2}+\sum{2->1}}{\sum{1->2}+\sum{2->1}+\sum{mutation}}$
-```{r}
+```{r, echo=FALSE}
 IGCchanges <- function(a, b, mutation){
   num <- colSums(a) + colSums(b)
   den <- num + colSums(mutation)
@@ -53,7 +54,7 @@ datatable(total, colnames = "proportion") %>%
               backgroundPosition = 'center')
 ```
 ## Calculate proportion for each branch separately.  Plot those (ignore N0-N1 and ignore N0-outgroup)
-```{r}
+```{r, include=FALSE, message=FALSE, echo=FALSE}
 IGCchangesSep <- function(x, dataset){
   one <- paste("(", x, ",1->2)",sep = "")
   two <- paste("(", x, ",2->1)",sep = "")
@@ -62,23 +63,23 @@ IGCchangesSep <- function(x, dataset){
   den <- num + dataset[mut,]
   num/den
 }
-N1N3 <- IGCchangesSep("N1,N3") 
-N1N2 <- IGCchangesSep("N1,N2") 
-N3N6 <- IGCchangesSep("N3,N6") 
-N3N4 <- IGCchangesSep("N3,N4") 
-N6N7 <- IGCchangesSep("N6,N7") 
-N4N5 <- IGCchangesSep("N4,N5")
-N2ENSDARG <- IGCchangesSep("N2,ENSDARG") 
-N2ENSAMXG <- IGCchangesSep("N2,ENSAMXG") 
-N6ENSGACG <- IGCchangesSep("N6,ENSGACG") 
-N4ENSONIG <- IGCchangesSep("N4,ENSONIG") 
-N7ENSTRUG <- IGCchangesSep("N7,ENSTRUG") 
-N7ENSTNIG <- IGCchangesSep("N7,ENSTNIG") 
-N5ENSXMAG <- IGCchangesSep("N5,ENSXMAG") 
-N5ENSORLG <- IGCchangesSep("N5,ENSORLG") 
+N1N3 <- IGCchangesSep("N1,N3", MG) 
+N1N2 <- IGCchangesSep("N1,N2", MG) 
+N3N6 <- IGCchangesSep("N3,N6", MG) 
+N3N4 <- IGCchangesSep("N3,N4", MG) 
+N6N7 <- IGCchangesSep("N6,N7", MG) 
+N4N5 <- IGCchangesSep("N4,N5", MG)
+N2ENSDARG <- IGCchangesSep("N2,ENSDARG", MG) 
+N2ENSAMXG <- IGCchangesSep("N2,ENSAMXG", MG) 
+N6ENSGACG <- IGCchangesSep("N6,ENSGACG", MG) 
+N4ENSONIG <- IGCchangesSep("N4,ENSONIG", MG) 
+N7ENSTRUG <- IGCchangesSep("N7,ENSTRUG", MG) 
+N7ENSTNIG <- IGCchangesSep("N7,ENSTNIG", MG) 
+N5ENSXMAG <- IGCchangesSep("N5,ENSXMAG", MG) 
+N5ENSORLG <- IGCchangesSep("N5,ENSORLG", MG) 
 ```
 
-```{r}
+```{r, echo=FALSE}
 IGC_List1 <- data.frame(N1N3, N1N2, N3N6, N3N4, N6N7, N4N5)
 IGC_List2 <- data.frame(N2ENSDARG, N2ENSAMXG, N6ENSGACG, N4ENSONIG, N7ENSTRUG, N7ENSTNIG, N5ENSXMAG, N5ENSORLG) 
 
@@ -221,7 +222,7 @@ data <- data[c(1, 8, 28:41, 90, 91),]
 
 
 Poisson calculation
-```{r}
+```{r, include=FALSE}
 taucountmatrix <- MG[44:57,]+MG[60:73,]
 scale0matrix <- taucountmatrix/MG[28:41,]
 omegamatrix <- rbind(MG[8,], MG[8,], MG[8,], MG[8,],MG[8,], MG[8,], MG[8,], MG[8,], MG[8,], MG[8,], MG[8,], MG[8,], MG[8,], MG[8,])

@@ -1,5 +1,5 @@
 
-name = "521original"
+name = "211original"
 FileName = paste(c(name,".pdf"))
 file = paste(c("/Users/yixuanyang/Desktop/IGC_DATA", FileName), collapse = "")
 library(gridExtra)
@@ -15,14 +15,16 @@ setwd("/Users/yixuanyang/Desktop")
 #Name <- unlist(strsplit(Name[90], split=" "))
 #Name <- Name[!(Name %in% Name[1])]
 #table <- data.frame(Name, Value)
-table <- MGc4_i1[,7] %>% as.matrix() %>% round(digits = 4)
-table <- data.frame(rownames(table), table)
-colnames(table) <- c(name, 'values')
+#table <- MGc4_i1[,7] %>% as.matrix() %>% round(digits = 4)
+#table <- data.frame(rownames(table), table)
+#colnames(table) <- c(name, 'values')
+
 pdf(file, height = 28)
-grid.table(table, rows = c(1:89))
+grid.table(table)
 dev.off()
 
 
-#testForSwap  <- readLines("/Users/yixuanyang/Downloads/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric() %>% as.matrix(byrow=TRUE, ncol= 1) 
-#rownames(testForSwap) <- NameList
+MG211original  <- readLines("/Users/yixuanyang/Desktop/rawData/211_Original/save/MG94_01_02_nonclockqq_summary.txt",  n = 89) %>% as.numeric() %>% as.matrix(byrow=TRUE, ncol= 1) 
+rownames(MG211original) <- NameList
+
 
