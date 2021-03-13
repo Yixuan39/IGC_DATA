@@ -90,4 +90,66 @@ new2 <- subset(new1, new1[,2]<0.5)
 plot(new2[,2],new2[,4])
 ```
 
+```{r}
+library(readxl)
+conf <- read_excel("fish_8spp_WGDfix_bias_nbconverg_CL_Top4_PreDBS8Opt1_bestprobs.xlsx")
+rows <- newNumbers + 1 # add 1 for head of the form
+conf <- conf[rows,]
+conflevel <- conf$BESTPROB
+new1 <- cbind(new1, conf$BESTPROB)
+plot(difll, conflevel, xlab = "log-likelihood difference", ylab = "confidence level")
+```
+# Use gene: ENSDARG, ENSTNIG, and ENSLOCG(as outgroup)
+# Option: Swap test, Force tau to 0, Clocked
+## Note:
+If Swapped loglikelihood > Unswapped loglikelihood, the 4th column shows red
+3 data are missing
+```{r}
+New_Swapped_Forced_Clocked_1 <- Readin4SwapFClocked(NameList4Swap, 'NSFC1', 'New_Swapped_Forced_Clocked_1')
+New_Unswapped_Forced_Clocked_1 <- Readin4SwapFClocked(NameList4Swap, 'NSFC1', 'New_Unswapped_Forced_Clocked_1')
+NSFC1 <- New_Swapped_Forced_Clocked_1[2,] %>% as.matrix()
+NUFC1 <- New_Unswapped_Forced_Clocked_1[2,] %>% as.matrix()
+NSUFC1 <- cbind(NSFC1, NUFC1, NSFC1-NUFC1)
+colnames(NSUFC1) <- c('Swapped_Loglikelihood', 'Unswapped_Loglikelihood', 'difference')
+NSUFC1[,3] > 0
+
+
+datatable(cbind(NSFC1, NUFC1, NSFC1-NUFC1, (NSFC1-NUFC1)>0), colnames = c('Swapped_Loglikelihood', 'Unswapped_Loglikelihood', 'difference', 'Swap>Unswap')) %>%
+  formatRound( columns = 1:3 , 3) %>% 
+  formatStyle(
+    'V4',
+    backgroundColor = styleEqual(c(TRUE, FALSE), c('red', 'yellow'))
+  )
+
+
+```
+
+```{r}
+# With clock
+New_Swapped_Clocked_1 <- Readin4SwapClocked(NameList4Swap, 'NSC1', 'New_Swapped_Clocked_1')
+New_Unswapped_Clocked_1 <- Readin4SwapClocked(NameList4Swap, 'NUC1', 'New_Unswapped_Clocked_1')
+NSC1 <- New_Swapped_Clocked_1[c(2,9),] %>% as.matrix() %>% t()
+NUC1 <- New_Unswapped_Clocked_1[c(2,9),] %>% as.matrix() %>% t()
+NSUC1 <- data.frame(NUC1[,1],NSC1[,1], NUC1[,1]-NSC1[,1], NUC1[,2],NSC1[,2], NUC1[,2]-NSC1[,2])
+colnames(NSUC1) <- c('unswap_ll', 'swap_ll', 'll_diference', 'unswap_tau', 'swap_tau', 'tau_difference')
+datatable(NSUC1, options = list(pageLength=45)) %>%
+  formatRound( columns = 1:6 , 3)
+
+# Without clock
+New_Swapped_1 <- Readin4Swap(NameList4Swap, 'NS1', 'New_Swapped_1')
+New_Unswapped_1 <- Readin4Swap(NameList4Swap, 'NU1', 'New_Unswapped_1')
+NS1 <- New_Swapped_1[c(2,9),] %>% as.matrix() %>% t()
+NU1 <- New_Unswapped_1[c(2,9),] %>% as.matrix() %>% t()
+NSU1 <- data.frame(NU1[,1],NS1[,1], NU1[,1]-NS1[,1], NU1[,2],NS1[,2], NU1[,2]-NS1[,2])
+colnames(NSU1) <- c('unswap_ll', 'swap_ll', 'll_diference', 'unswap_tau', 'swap_tau', 'tau_difference')
+datatable(NSU1, options = list(pageLength=45)) %>%
+  formatRound( columns = 1:6 , 3)
+```
+
+
+
+
+
+
+
 

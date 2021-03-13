@@ -1,0 +1,66 @@
+---
+title: "Renamed"
+author: "Yixuan Yang"
+date: "3/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(DT)
+library(dplyr)
+load("IGC_data1.4.RData")
+```
+
+```{r, include=FALSE}
+# With clock
+NewSwappedClocked1 <- Readin4SwapClocked(NameList4Swap, '', 'NewSwappedClocked1')
+NewUnswappedClocked1 <- Readin4SwapClocked(NameList4Swap, '', 'NewUnswappedClocked1')
+```
+
+```{r}
+NSC1 <- NewSwappedClocked1[c(2,9),] %>% as.matrix() %>% t()
+NUC1 <- NewUnswappedClocked1[c(2,9),] %>% as.matrix() %>% t()
+NSUC1 <- data.frame(NUC1[,1],NSC1[,1], NUC1[,1]-NSC1[,1], NUC1[,2],NSC1[,2], NUC1[,2]-NSC1[,2])
+colnames(NSUC1) <- c('unswap_ll', 'swap_ll', 'll_diference', 'unswap_tau', 'swap_tau', 'tau_difference')
+
+datatable(NSUC1,
+          options = list(pageLength=45), # show all 45 dataset
+          caption = "Clock") %>%
+  formatRound( columns = 1:6 , 3)
+
+plot(NSUC1[,3], NSUC1[,6],
+     #xlim = c(-400, 400),
+     xlab = "loglikelihood different",
+     ylab = "tau different"
+     )
+abline(h=0, col="blue")
+
+# check loglikelihood differnet small than -25
+total = data.frame()
+for(i in 1:45){
+  if(is.na(NSUC1[i,3])==FALSE){
+    if(NSUC1[i,3] < -25){
+      df <- NSUC1[i,]
+      total <- rbind(total,df)
+    }
+  }
+}
+datatable(total,
+          caption = "check loglikelihood differnet small than -25") %>%
+  formatRound( columns = 1:6 , 3)
+```
+
+# nonclock nonforce vs. force tau
+```{r, include=FALSE}
+IGC_Full <- Readin(NameList, "", "IGC_Full")
+IGC_Full_Force <- ReadinF(NameList,"", "IGC_Full_ForceTau")
+```
+
+```{r}
+form1 <- cbind(IGC_Full[2,], IGC_Full_Force[2,], IGC_Full[2,]-IGC_Full_Force[2,]) %>% data.frame()
+colnames(form1) <- c("ll","ll_tau=0", "difference")
+datatable(form1,
+          options = list(pageLength=45) # show all 45 dataset
+          )
+```

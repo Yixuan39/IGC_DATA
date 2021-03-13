@@ -34,8 +34,35 @@ Readin <- function(list, iterations, caseName) {
     rownames(data) <- NameList
     return(data)
 }
-MGc4_i1 <- Readin('c4_i1', 'case4(1)')
-swcase2 <- Readin(list = swapNameList, 'swc2_i1', caseName = 'swcase2' )
+```
+
+```{r}
+ReadinF <- function(list, iterations, caseName) {
+    
+    columnNames = c()
+    data = c()
+    for (i in List) {
+      
+      folderName = paste("/", substr(i, start = 3, stop = nchar(i)), sep = "")
+      
+      path = paste("./", caseName, folderName, "/save/Force_MG94_01_02_nonclockqq_summary.txt", sep = "")
+      numbers <- NA
+      tryCatch(numbers <- readLines(path,  n = 89) %>% as.numeric(), error=function(e){
+        message(" No data yet.")
+      })
+      
+      variableName = paste(i, iterations, sep = "")
+      columnNames <- append(columnNames, variableName)
+      data <- cbind(data, numbers)
+      
+    }
+    data <- matrix(data = data, ncol = 45, nrow = 89, byrow = FALSE)
+    data.frame(data)
+    colnames(data) <- columnNames
+    rownames(data) <- NameList
+    return(data)
+}
+
 ```
 
 ```{r}
@@ -87,6 +114,34 @@ Readin4SwapClocked <- function(list, iterations, caseName) {
       folderName = paste("/", substr(i, start = 3, stop = nchar(i)), sep = "")
       
       path = paste("./", caseName, folderName, "/save/MG94_01_02_clock_summary.txt", sep = "")
+      numbers <- NA
+      tryCatch(numbers <- readLines(path,  n = (count - 1)) %>% as.numeric(), error=function(e){
+        message(" No data yet.")
+      })
+      
+      variableName = paste(i, iterations, sep = "")
+      columnNames <- append(columnNames, variableName)
+      data <- cbind(data, numbers)
+      
+    }
+    data <- matrix(data = data, ncol = 45, nrow = (count - 1), byrow = FALSE)
+    data.frame(data)
+    colnames(data) <- columnNames
+    rownames(data) <- NameList4Swap
+    return(data)
+}
+```
+
+```{r}
+Readin4SwapFClocked <- function(list, iterations, caseName) {
+    
+    columnNames = c()
+    data = c()
+    for (i in List) {
+      
+      folderName = paste("/", substr(i, start = 3, stop = nchar(i)), sep = "")
+      
+      path = paste("./", caseName, folderName, "/save/Force_MG94_01_02_clock_summary.txt", sep = "")
       numbers <- NA
       tryCatch(numbers <- readLines(path,  n = (count - 1)) %>% as.numeric(), error=function(e){
         message(" No data yet.")
@@ -425,7 +480,10 @@ HKY_Forced <- cbind(HF211, HF214, HF222, HF223, HF337, HF479, HF521, HF526, HF56
 rownames(HKY_Forced) <- NameList
 ```
 
+```{r}
+newNumbers <- c('211', '214', '222', '223', '337', '479', '521', '526', '561', '735', '755', '852', '1050', '1053', '1215', '2129', '2158', '2210', '2214', '2321', '2358', '2371', '2382', '2861', '3278', '3295', '3309', '3337', '3346', '3347', '3390', '3994', '4025', '4031', '4063', '4268', '4287', '4494', '4553', '4570', '4932', '5153', '5233', '5316', '5550') %>% as.matrix() %>% as.numeric()
 
+```
 
 
 

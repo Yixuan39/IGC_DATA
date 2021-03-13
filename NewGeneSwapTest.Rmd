@@ -1,0 +1,38 @@
+---
+title: "NewGeneSwapTest"
+author: "Yixuan Yang"
+date: "2/23/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(DT)
+library(dplyr)
+load("IGC_data1.3.RData")
+```
+
+# Use gene: ENSDARG, ENSTNIG, and ENSLOCG(as outgroup)
+# Option: Swap test, Force tau to 0, Clocked
+## Note:
+### If Swapped loglikelihood > Unswapped loglikelihood, the 4th column shows red
+### 3 data are missing
+### NSFC represent new swap force clock
+```{r, warning=FALSE, message=FALSE}
+New_Swapped_Forced_Clocked_1 <- Readin4SwapFClocked(NameList4Swap, 'NSFC1', 'New_Swapped_Forced_Clocked_1')
+New_Unswapped_Forced_Clocked_1 <- Readin4SwapFClocked(NameList4Swap, 'NSFC1', 'New_Unswapped_Forced_Clocked_1')
+NSFC1 <- New_Swapped_Forced_Clocked_1[2,] %>% as.matrix()
+NUFC1 <- New_Unswapped_Forced_Clocked_1[2,] %>% as.matrix()
+NSUFC1 <- cbind(NSFC1, NUFC1, NSFC1-NUFC1)
+colnames(NSUFC1) <- c('Swapped_Loglikelihood', 'Unswapped_Loglikelihood', 'difference')
+
+datatable(cbind(NSFC1, NUFC1, NSFC1-NUFC1, (NSFC1-NUFC1)>0), colnames = c('Swapped_Loglikelihood', 'Unswapped_Loglikelihood', 'difference', 'Swap>Unswap'), options = list(pageLength=45)) %>%
+  formatRound( columns = 1:3 , 3) %>% 
+  formatStyle(
+    'V4',
+    backgroundColor = styleEqual(c(TRUE, FALSE), c('red', 'yellow'))
+  )
+
+
+```
