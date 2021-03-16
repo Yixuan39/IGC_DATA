@@ -1,0 +1,327 @@
+/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py:60: RuntimeWarning: overflow encountered in multiply
+  return self._R.dot(other) + self._d[:, np.newaxis] * other
+/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py:65: RuntimeWarning: overflow encountered in multiply
+  return self._RT.dot(other) + self._d[:, np.newaxis] * other
+/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py:65: RuntimeWarning: invalid value encountered in add
+  return self._RT.dot(other) + self._d[:, np.newaxis] * other
+/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py:60: RuntimeWarning: invalid value encountered in add
+  return self._R.dot(other) + self._d[:, np.newaxis] * other
+number of sites to be analyzed:  197
+log likelihood =  2157.851815594605
+Lr derivatives =  [30.056213160944672, -104.80948141585054, -89.67959193168662]
+other derivatives =  [ 29.49977898 -11.95676305  -1.27502062   0.89926289 169.69424905
+  -3.35749064]
+Current x_clock array =  [-0.64459877 -0.98362706 -0.52445079  0.74193734 -0.10536052 -0.51082562
+ -0.51082562 -0.51082562 -0.51082562]
+log likelihood =  2023.3840926343507
+Lr derivatives =  [-47.32814052523762, -131.8269243983937, -113.1710080225451]
+other derivatives =  [-111.9239414     1.24111921  -38.81916655    9.05722572  117.3504188
+   -1.16860974]
+Current x_clock array =  [-0.8132834  -0.97828843 -0.5217378   0.73679521 -1.07570039 -0.49162694
+ -0.68269204 -0.50790464 -0.50790464]
+log likelihood =  1843.8596312839695
+Lr derivatives =  [-80.12155976828544, -82.82565634577493, -54.111574330906706]
+other derivatives =  [125.86629055  35.56297088 143.85891518  12.89954525 -18.30826477
+  14.20571607]
+Current x_clock array =  [-0.5609397  -1.0040636  -0.30288238  0.67537773 -3.84296202 -0.44326697
+ -0.79531157 -0.05987167 -0.12135029]
+log likelihood =  1857.2970332498276
+Lr derivatives =  [12.23597334400256, -22.290257956865105, 5.0271410145796835]
+other derivatives =  [-125.466795     -0.94842108 -211.22282305   22.68200205  -15.50620254
+   16.42270036]
+Current x_clock array =  [-0.77393065 -1.13698397 -0.72565724  0.61429122 -3.94354827 -0.4910697
+ -0.42072954  0.          0.        ]
+log likelihood =  1819.8903473780545
+Lr derivatives =  [-44.02374750282749, -58.63577963161366, -36.95015704337572]
+other derivatives =  [ -5.42779617  18.74248028 -66.35832506  17.2116188  -17.71079496
+  16.38768481]
+Current x_clock array =  [-0.64832187 -1.05859583 -0.476331    0.65031623 -3.88422877 -0.46287864
+ -0.64163466 -0.03530858 -0.07156483]
+log likelihood =  1808.772106357767
+Lr derivatives =  [-24.788769298647956, -42.0596691325309, -27.123853923463713]
+other derivatives =  [  6.80199719  17.02237569 -53.66978257  13.02955752  -9.6618578
+  17.99667189]
+Current x_clock array =  [-0.64035777 -1.08140605 -0.45026157  0.63379891 -3.70256343 -0.48297457
+ -0.55791775  0.         -0.02899989]
+log likelihood =  1803.8902151639386
+Lr derivatives =  [-1.6105160281827366, -23.665927721745323, 12.638201951631345]
+other derivatives =  [-54.41097528  -7.83388714  59.56144378   0.32041498   8.46953299
+  18.23314051]
+Current x_clock array =  [-0.72075566 -1.18831252 -0.33199621  0.57662926 -3.42907416 -0.59604128
+ -0.39091336  0.          0.        ]
+log likelihood =  1800.1579417114262
+Lr derivatives =  [-2.947657109096049, -25.35659766772956, 14.152146832202561]
+other derivatives =  [ -6.86245585  -0.62104846 -11.38730568   3.96853466   3.65794222
+  17.45388545]
+Current x_clock array =  [-0.65961883 -1.16660577 -0.3920735   0.58095344 -3.50497381 -0.59672688
+ -0.40817051  0.          0.        ]
+log likelihood =  1799.6746182115485
+Lr derivatives =  [-3.926901655687505, -26.092814737575882, -20.60134043953847]
+other derivatives =  [-0.91458787 -1.55127964 -5.84968802  3.00669853  2.54974566 16.56362656]
+Current x_clock array =  [-0.65355664 -1.17434147 -0.3866869   0.57112917 -3.54032172 -0.62888559
+ -0.39641968  0.         -0.01544342]
+log likelihood =  1797.820671940101
+Lr derivatives =  [-1.4961359104096559, -23.283149165094894, -20.705413367392886]
+other derivatives =  [10.5869276  -6.62867023  6.56687007 -0.23910616  0.2921297  14.46819624]
+Current x_clock array =  [-0.6418575  -1.21096954 -0.37214566  0.53340383 -3.66609285 -0.7363178
+ -0.32942201  0.         -0.01588923]
+log likelihood =  1795.6525467690874
+Lr derivatives =  [3.4674816957923156, -18.933087167488317, -20.642301092973263]
+other derivatives =  [ 8.29256805 -3.78418008 12.50552941 -2.60786237 -2.26248176 10.92446382]
+Current x_clock array =  [-0.64577536 -1.2156927  -0.36142106  0.49086028 -3.81541034 -0.93160824
+ -0.2410065   0.         -0.01134763]
+log likelihood =  1792.9193413836567
+Lr derivatives =  [11.621345932162608, -13.089940684093829, 0.7343032848439179]
+other derivatives =  [23.07995146 -4.18378931 12.75523118 -3.78147433  2.59574335  6.18517788]
+Current x_clock array =  [-0.63331779 -1.22845366 -0.35929668  0.47965458 -3.73327643 -1.29993958
+ -0.20495408  0.          0.        ]
+log likelihood =  1790.2761882057948
+Lr derivatives =  [5.756106284323227, -17.37807303419666, 5.810989023302682]
+other derivatives =  [ 3.22870619e-03 -6.95627023e-01  6.52489689e+00 -2.24385985e+00
+ -1.78197297e+00  3.12597876e+00]
+Current x_clock array =  [-0.6566597  -1.20755214 -0.36268292  0.49028776 -3.78247885 -1.71232844
+ -0.25026978  0.          0.        ]
+log likelihood =  1789.028172135109
+Lr derivatives =  [1.077471952121737, -21.599283670228, -32.582498670856836]
+other derivatives =  [-4.32064553  0.33764991 -1.84659257 -0.04820322 -0.28021532  1.5058049 ]
+Current x_clock array =  [-0.66159421 -1.19036423 -0.37278011  0.52191101 -3.65744843 -2.15572618
+ -0.32918099  0.         -0.00678286]
+log likelihood =  1788.413461847742
+Lr derivatives =  [-1.4460881137750796, -23.39073138178851, 12.418399819580372]
+other derivatives =  [-1.69702616  1.12695488 -1.51203494  1.00676516  0.83825853  0.85915417]
+Current x_clock array =  [-0.65940002 -1.18152725 -0.37479875  0.53604074 -3.59154385 -2.51972339
+ -0.36980862  0.          0.        ]
+log likelihood =  1788.2989689700476
+Lr derivatives =  [-2.280533113338109, -23.822598881353873, -36.72944197815124]
+other derivatives =  [0.7248218  1.11847385 0.83373379 0.82145561 0.43560249 0.53719305]
+Current x_clock array =  [-6.57248754e-01 -1.18212116e+00 -3.73010244e-01  5.32868092e-01
+ -3.59746043e+00 -2.78812443e+00 -3.73962516e-01  0.00000000e+00
+ -1.97473865e-03]
+log likelihood =  1788.0276376611268
+Lr derivatives =  [-1.6849588871368084, -22.82861497942244, 12.256805348442867]
+other derivatives =  [ 5.56956365  1.27406565  6.75822776 -0.16366357 -0.64478627  0.17928414]
+Current x_clock array =  [-0.65312106 -1.18600235 -0.36735893  0.51688079 -3.63820673 -3.40963232
+ -0.36230373  0.          0.        ]
+log likelihood =  1788.0140939715345
+Lr derivatives =  [-1.2831954819773728, -22.55164953005538, -38.35644265682982]
+other derivatives =  [ 4.32401066  1.29450655  6.40659437 -0.26172984 -0.56220415  0.13872068]
+Current x_clock array =  [-6.54511406e-01 -1.18600535e+00 -3.67420493e-01  5.14552204e-01
+ -3.63752651e+00 -3.54998752e+00 -3.60281895e-01  0.00000000e+00
+ -4.93118794e-04]
+log likelihood =  1787.9268580735743
+Lr derivatives =  [-0.03731431791187845, -21.7657654880828, 10.901521818595938]
+other derivatives =  [-1.1627435   1.64823177  4.41873453 -0.40254236  0.04329195  0.04672529]
+Current x_clock array =  [-0.66059296 -1.18331837 -0.36862946  0.5079878  -3.62206968 -4.18317307
+ -0.35898822  0.          0.        ]
+log likelihood =  1787.9232615809772
+Lr derivatives =  [0.13534597865909248, -21.66512098836459, -38.906772500778935]
+other derivatives =  [-1.32479272  1.3158342   4.1139856  -0.45604338  0.32835032  0.03622063]
+Current x_clock array =  [-6.60763147e-01 -1.18426673e+00 -3.68988837e-01  5.06807268e-01
+ -3.61424583e+00 -4.33765067e+00 -3.59854611e-01  0.00000000e+00
+ -9.25598996e-05]
+log likelihood =  1787.9156890347874
+Lr derivatives =  [0.4199619911792958, -21.492272667397014, 10.536155059526209]
+other derivatives =  [-1.52597295  0.56627414  3.85152816 -0.61590981  0.88577963  0.01930403]
+Current x_clock array =  [-0.66098597 -1.18642785 -0.36949558  0.50326253 -3.59906695 -4.73983357
+ -0.3618837   0.          0.        ]
+log likelihood =  1787.9132539986904
+Lr derivatives =  [0.19522283073250435, -21.60736680830469, -39.19795136221384]
+other derivatives =  [-1.41728833  0.58346359  4.26784936 -0.65015229  0.61095307  0.01923581]
+Current x_clock array =  [-6.60866120e-01 -1.18660384e+00 -3.69085755e-01  5.02535816e-01
+ -3.60638184e+00 -4.73774310e+00 -3.61416177e-01  0.00000000e+00
+ -2.60663118e-05]
+log likelihood =  1787.91045300417
+Lr derivatives =  [-0.2347128587462528, -21.828343167764423, 11.031534086214378]
+other derivatives =  [-1.12370344  0.4768026   5.0674771  -0.73698629  0.16259492  0.01759872]
+Current x_clock array =  [-0.66053967 -1.18735411 -0.36837045  0.50068035 -3.61816416 -4.79423521
+ -0.36107691  0.          0.        ]
+log likelihood =  1787.90973267836
+Lr derivatives =  [-0.26103155336905104, -21.851880924173756, -39.4482306117858]
+other derivatives =  [-0.97759312  0.25784175  4.98844202 -0.75710886  0.26732323  0.01589342]
+Current x_clock array =  [-6.60358958e-01 -1.18801557e+00 -3.68535479e-01  5.00250756e-01
+ -3.61486927e+00 -4.86454395e+00 -3.61966494e-01  0.00000000e+00
+ -1.22412831e-05]
+log likelihood =  1787.9085204912776
+Lr derivatives =  [-0.2777274965090939, -21.878157028180045, 11.07798652810743]
+other derivatives =  [-0.84642124 -0.08340066  4.7157755  -0.774412    0.45333763  0.01384706]
+Current x_clock array =  [-0.66016671 -1.18900974 -0.36890899  0.4998068  -3.60909754 -4.96339027
+ -0.36338528  0.          0.        ]
+log likelihood =  1787.9078622839284
+Lr derivatives =  [-0.41667408551868945, -21.96623039953163, -39.56535535570606]
+other derivatives =  [-0.92559276 -0.18342234  4.6436071  -0.77200184  0.37516656  0.01359695]
+Current x_clock array =  [-6.60209509e-01 -1.18933047e+00 -3.68975194e-01  4.99653161e-01
+ -3.61060296e+00 -4.97822396e+00 -3.63859100e-01  0.00000000e+00
+ -3.22276529e-06]
+log likelihood =  1787.9063339866293
+Lr derivatives =  [-0.9947792972247953, -22.349941398293563, 11.672364053083584]
+other derivatives =  [-1.4928446  -0.55749751  3.98795237 -0.70831447  0.07939889  0.01352873]
+Current x_clock array =  [-0.66061033 -1.1903698  -0.36953458  0.49989452 -3.61559207 -4.99573532
+ -0.36624004  0.          0.        ]
+log likelihood =  1787.9059691804796
+Lr derivatives =  [-0.9203176982664658, -22.319555011509287, -39.72864569071278]
+other derivatives =  [-1.64222911 -0.48462425  3.67276698 -0.65983841  0.15679689  0.01452918]
+Current x_clock array =  [-6.60759477e-01 -1.18999472e+00 -3.69787938e-01  5.00805359e-01
+ -3.61333075e+00 -4.94791080e+00 -3.66403860e-01  0.00000000e+00
+ -2.73529064e-06]
+log likelihood =  1787.905758192533
+Lr derivatives =  [-0.8525022299019938, -22.28927221899981, 11.570909919100814]
+other derivatives =  [-1.72210548 -0.42089141  3.43216016 -0.6207074   0.22257609  0.01546141]
+Current x_clock array =  [-0.66083863 -1.1896913  -0.36998141  0.50158079 -3.61147818 -4.90479239
+ -0.36648823  0.          0.        ]
+log likelihood =  1787.9057444020063
+Lr derivatives =  [-0.8914310676683499, -22.315344516583824, -39.69101092133405]
+other derivatives =  [-1.75487003 -0.44426542  3.38127393 -0.61477294  0.20286279  0.01552962]
+Current x_clock array =  [-6.60859085e-01 -1.18975591e+00 -3.70024462e-01  5.01633865e-01
+ -3.61180420e+00 -4.90329060e+00 -3.66650452e-01  0.00000000e+00
+ -4.82525667e-07]
+log likelihood =  1787.9057253508013
+Lr derivatives =  [-0.9569468883200543, -22.358428188872306, 11.65772118838504]
+other derivatives =  [-1.78779374 -0.48448783  3.30639978 -0.60570073  0.16852937  0.01564331]
+Current x_clock array =  [-0.66087054 -1.18987816 -0.37008831  0.50172102 -3.61240689 -4.89989441
+ -0.36690611  0.          0.        ]
+log likelihood =  1787.9056836115308
+Lr derivatives =  [-0.9348282105690906, -22.34317138092743, -39.70354280593531]
+other derivatives =  [-1.74679826 -0.47061803  3.33868684 -0.60870207  0.17878392  0.01566605]
+Current x_clock array =  [-6.60834910e-01 -1.18984860e+00 -3.70061050e-01  5.01714447e-01
+ -3.61226116e+00 -4.89815064e+00 -3.66799792e-01  0.00000000e+00
+ -2.71326478e-08]
+log likelihood =  1787.9055438060873
+Lr derivatives =  [-0.8391198311663359, -22.275494192667125, 11.557312973309308]
+other derivatives =  [-1.4458692  -0.41154635  3.47804416 -0.61743322  0.22266704  0.01618901]
+Current x_clock array =  [-0.66054655 -1.18976772 -0.36994545  0.50185784 -3.61170025 -4.87501517
+ -0.36630104  0.          0.        ]
+log likelihood =  1787.9053962578773
+Lr derivatives =  [-0.8605449987115783, -22.285246866466952, -39.63690996805842]
+other derivatives =  [-1.11060672 -0.43332875  3.45289664 -0.60376806  0.21277629  0.01723492]
+Current x_clock array =  [-6.60173579e-01 -1.18995793e+00 -3.69975508e-01  5.02339043e-01
+ -3.61200321e+00 -4.83322681e+00 -3.66291285e-01  0.00000000e+00
+ -9.10167503e-07]
+log likelihood =  1787.9053611849356
+Lr derivatives =  [-0.9114002407445767, -22.3191250396576, -39.652885957696526]
+other derivatives =  [-1.08504992 -0.48291895  3.37674919 -0.59583272  0.19683739  0.01732587]
+Current x_clock array =  [-6.60123964e-01 -1.19012157e+00 -3.70048930e-01  5.02451550e-01
+ -3.61215764e+00 -4.82997158e+00 -3.66552453e-01  0.00000000e+00
+ -1.07770556e-06]
+log likelihood =  1788.2963051209535
+Lr derivatives =  [-1.4066564566290367, -21.820867445497985, -40.796077223621985]
+other derivatives =  [ 1.09296025e+01 -3.69627742e+00  1.62398464e+01 -3.68895599e+00
+ -2.30547812e+00  9.09494702e-05]
+Current x_clock array =  [-6.48457764e-01 -1.20889217e+00 -3.60481790e-01  4.38726871e-01
+ -3.70688364e+00 -8.44068950e+00 -3.43798520e-01  0.00000000e+00
+ -2.38928435e-06]
+log likelihood =  1787.9048110944698
+Lr derivatives =  [-0.9117473758437136, -22.281476283348383, -39.74093673567741]
+other derivatives =  [-0.63380412 -0.59774266  3.82708549 -0.71647719  0.09970336  0.01393801]
+Current x_clock array =  [-6.59684504e-01 -1.19082865e+00 -3.69688540e-01  5.00051074e-01
+ -3.61572592e+00 -4.96598550e+00 -3.65695324e-01  0.00000000e+00
+ -1.12711207e-06]
+log likelihood =  1935.4984058938462
+Lr derivatives =  [162.03293357777642, 79.11453141336808, -120.573713502381]
+other derivatives =  [  61.23736966   32.48362646 -317.74625313    5.79668722   50.53116183
+   -0.        ]
+Current x_clock array =  [ -0.6045338   -1.16278268  -0.90407273  -0.14086112  -3.26536546
+ -56.84369728   0.10131973   0.           0.        ]
+log likelihood =  1787.8980215231586
+Lr derivatives =  [0.1816945074703895, -21.609514819774073, -39.59934380988973]
+other derivatives =  [-0.43992259 -0.48839865 -1.16065166 -0.74528543  0.28842351  0.0069349 ]
+Current x_clock array =  [-6.59272471e-01 -1.19061912e+00 -3.73680952e-01  4.95262786e-01
+ -3.61310836e+00 -5.35356653e+00 -3.62206231e-01  0.00000000e+00
+ -1.11869135e-06]
+log likelihood =  1787.9108196475372
+Lr derivatives =  [-0.28638791223167814, -21.888054187752545, 11.087217899330426]
+other derivatives =  [-3.00233296  0.79062374 -1.38966243 -0.55972578 -0.79417077  0.00977707]
+Current x_clock array =  [-0.66203215 -1.18611955 -0.37316744  0.49695609 -3.64152081 -5.10321139
+ -0.35933308  0.          0.        ]
+log likelihood =  1787.897124309538
+Lr derivatives =  [0.08526148152386881, -21.66656285943246, -39.61749216817677]
+other derivatives =  [-0.96415533 -0.22796485 -1.20880941 -0.70722308  0.06593837  0.00748059]
+Current x_clock array =  [-6.59834884e-01 -1.18970212e+00 -3.73576300e-01  4.95607877e-01
+ -3.61889872e+00 -5.30254501e+00 -3.61620693e-01  0.00000000e+00
+ -8.90705903e-07]
+log likelihood =  1787.8938185131033
+Lr derivatives =  [-0.1460072460288444, -21.804164094901388, 10.975099939969368]
+other derivatives =  [-0.14902071  0.0394266  -0.27812348 -0.5928996   0.03356035  0.0077307 ]
+Current x_clock array =  [-0.65905874 -1.18885126 -0.37282834  0.4992784  -3.61868454 -5.28599659
+ -0.36278873  0.          0.        ]
+log likelihood =  1787.89201540519
+Lr derivatives =  [-0.349403810502789, -21.930473962681468, 11.139945854665712]
+other derivatives =  [ 0.67088877  0.38903636  0.23926532 -0.44622084  0.0017053   0.00695763]
+Current x_clock array =  [-0.65827165 -1.18763973 -0.37242238  0.50319486 -3.61806582 -5.36502164
+ -0.36418369  0.          0.        ]
+log likelihood =  1857.5696676056618
+Lr derivatives =  [-100.49530197682151, -93.09717343944266, -61.9031975385428]
+other derivatives =  [-172.82359295  -20.45665042   69.89339454    8.6368118    19.33367457
+   -0.        ]
+Current x_clock array =  [-9.34926291e-01 -1.09456257e+00 -3.25234874e-01  6.10472906e-01
+ -2.69370112e+00 -6.50718599e+01 -1.04566997e+00  0.00000000e+00
+ -2.85134663e-03]
+log likelihood =  1787.8919392041712
+Lr derivatives =  [-0.5594242697263994, -22.08855041278288, -39.872613419120015]
+other derivatives =  [-0.02910383  0.32575826  0.48030415 -0.41827661  0.03051355  0.00568434]
+Current x_clock array =  [-6.59015790e-01 -1.18738938e+00 -3.72295457e-01  5.03483414e-01
+ -3.61557946e+00 -5.52562088e+00 -3.66016748e-01  0.00000000e+00
+ -7.66954224e-06]
+log likelihood =  1787.8911584670695
+Lr derivatives =  [-0.4628759747338371, -22.0170651207023, -39.87347911235939]
+other derivatives =  [ 0.52596079  0.56131739  0.27730493 -0.3860805   0.00950422  0.00482032]
+Current x_clock array =  [-6.58470829e-01 -1.18672311e+00 -3.72436577e-01  5.04133291e-01
+ -3.61640211e+00 -5.63214200e+00 -3.65561080e-01  0.00000000e+00
+ -5.42580505e-06]
+log likelihood =  1787.8891092242634
+Lr derivatives =  [-0.45209956824968245, -21.9993709026698, 11.225733942410443]
+other derivatives =  [ 0.41327439  0.60017555  0.05043148 -0.31473064  0.00823093  0.00318323]
+Current x_clock array =  [-0.65857897 -1.18667509 -0.37252374  0.5059274  -3.61621195 -5.93585862
+ -0.36557616  0.          0.        ]
+log likelihood =  1787.8861656417223
+Lr derivatives =  [-0.42952848337818494, -21.950419505866904, 11.189990800630767]
+other derivatives =  [ 0.0625505   0.4170488  -0.08205916 -0.24579094  0.00175078  0.00140972]
+Current x_clock array =  [-0.65889438 -1.18766758 -0.37241538  0.50841365 -3.61685852 -6.57305564
+ -0.36490664  0.          0.        ]
+Traceback (most recent call last):
+  File "/var/lib/slurm-llnl/slurmd/job2059594/slurm_script", line 29, in <module>
+    test.get_mle()
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 900, in get_mle
+    result = scipy.optimize.minimize(f, guess_x, jac = True, method = 'L-BFGS-B', bounds = bnds)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/_minimize.py", line 603, in minimize
+    callback=callback, **options)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/lbfgsb.py", line 335, in _minimize_lbfgsb
+    f, g = func_and_grad(x)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/lbfgsb.py", line 285, in func_and_grad
+    f = fun(x, *args)
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/optimize.py", line 293, in function_wrapper
+    return function(*(wrapper_args + args))
+  File "/usr/local/lib/python3.5/dist-packages/scipy/optimize/optimize.py", line 63, in __call__
+    fg = self.fun(x, *args)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 769, in Clock_wrap
+    f, g = self.loglikelihood_and_gradient()
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 676, in loglikelihood_and_gradient
+    ll, edge_derivs = fn(edge_derivative = True)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 598, in _loglikelihood2
+    j_out = jsonctmctree.interface.process_json_in(j_in)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/interface.py", line 130, in process_json_in
+    return impl_v2.process_json_in(j_in, debug=debug)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/impl_v2.py", line 702, in process_json_in
+    return Reactor(toplevel.scene, debug=debug).main(toplevel.requests)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/impl_v2.py", line 687, in main
+    self.react(requests, responses)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/impl_v2.py", line 666, in react
+    if self._create_node_to_conditional_likelihoods(unmet_core_requests):
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/impl_v2.py", line 308, in _create_node_to_conditional_likelihoods
+    self.scene.observed_data.iid_observations,
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/common_likelihood.py", line 252, in get_conditional_likelihoods
+    arr = expm_objects[edge_process].expm_mul(edge_rate, arr)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/expm_helpers.py", line 177, in expm_mul
+    return P.dot(A)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/basic_ops.py", line 25, in dot
+    return self._matmat(other)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py", line 311, in _matmat
+    return self._P._parameterized_matmat(self._t, B)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py", line 264, in _parameterized_matmat
+    self._A, self._mu, self._forward_iteration_stash, t, B)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/ctmc_ops.py", line 171, in _expm_product_helper
+    m, s = iteration_stash.fragment_3_1(n0, t)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/experimental.py", line 115, in fragment_3_1
+    m, value = self.cmstar(t)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/jsonctmctree/pyexp/experimental.py", line 160, in cmstar
+    value = int(M[r, c])
+ValueError: cannot convert float NaN to integer

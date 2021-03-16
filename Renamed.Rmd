@@ -16,50 +16,82 @@ load("IGC_data1.4.RData")
 # With clock
 NewSwappedClocked1 <- Readin4SwapClocked(NameList4Swap, '', 'NewSwappedClocked1')
 NewUnswappedClocked1 <- Readin4SwapClocked(NameList4Swap, '', 'NewUnswappedClocked1')
+NewSwappedClocked2 <- Readin4SwapClocked(NameList4Swap, '', 'NewSwappedClocked2')
+NewUnswappedClocked2 <- Readin4SwapClocked(NameList4Swap, '', 'NewUnswappedClocked2')
+NewSwappedClocked3 <- Readin4SwapClocked(NameList4Swap, '', 'NewSwappedClocked3')
+NewUnswappedClocked3 <- Readin4SwapClocked(NameList4Swap, '', 'NewUnswappedClocked3')
 ```
 
-```{r}
-NSC1 <- NewSwappedClocked1[c(2,9),] %>% as.matrix() %>% t()
-NUC1 <- NewUnswappedClocked1[c(2,9),] %>% as.matrix() %>% t()
-NSUC1 <- data.frame(NUC1[,1],NSC1[,1], NUC1[,1]-NSC1[,1], NUC1[,2],NSC1[,2], NUC1[,2]-NSC1[,2])
-colnames(NSUC1) <- c('unswap_ll', 'swap_ll', 'll_diference', 'unswap_tau', 'swap_tau', 'tau_difference')
+```{r swap experiment}
+NSC3 <- NewSwappedClocked3[c(2,9),] %>% as.matrix() %>% t()
+NUC3 <- NewUnswappedClocked3[c(2,9),] %>% as.matrix() %>% t()
+NSUC3 <- data.frame(NUC3[,1],NSC3[,1], NUC3[,1]-NSC3[,1], NUC3[,2],NSC3[,2], NUC3[,2]-NSC3[,2])
+colnames(NSUC3) <- c('unswap_ll', 'swap_ll', 'll_diference', 'unswap_tau', 'swap_tau', 'tau_difference')
 
-datatable(NSUC1,
-          options = list(pageLength=45), # show all 45 dataset
+datatable(NSUC3,
+          #options = list(pageLength=45), # show all 45 dataset
           caption = "Clock") %>%
   formatRound( columns = 1:6 , 3)
 
-plot(NSUC1[,3], NSUC1[,6],
+plot(NSUC3[,3], NSUC3[,6],
      #xlim = c(-400, 400),
      xlab = "loglikelihood different",
      ylab = "tau different"
      )
 abline(h=0, col="blue")
+abline(v=0, col="red")
+#fit <- lm(NSUC3[,6]~NSUC3[,3])
+#summary(fit)
+#abline(fit)
 
 # check loglikelihood differnet small than -25
 total = data.frame()
 for(i in 1:45){
-  if(is.na(NSUC1[i,3])==FALSE){
-    if(NSUC1[i,3] < -25){
-      df <- NSUC1[i,]
-      total <- rbind(total,df)
+  if(is.na(NSUC3[i,3])==FALSE){
+    if(NSUC3[i,6] != TRUE){
+      if(NSUC3[i,3] < 0){
+        df <- NSUC3[i,]
+        total <- rbind(total,df)
+      }
     }
   }
 }
 datatable(total,
-          caption = "check loglikelihood differnet small than -25") %>%
+          caption = "check loglikelihood differnet small than 0") %>%
+  formatRound( columns = 1:6 , 3)
+
+plot(NSUC3[,4], NSUC3[,5],
+     xlab = "unswapped tau",
+     ylab = "swapped tau")
+abline(coef = c(0,1))
+
+total = data.frame()
+for(i in 1:45){
+  if(is.na(NSUC3[i,6])==FALSE){
+    
+    if(NSUC3[i,6] < 0){
+      df <- NSUC3[i,]
+      total <- rbind(total,df)
+    }
+    
+  }
+}
+datatable(total,
+          caption = "swapped tau larger than unswapped tau") %>%
   formatRound( columns = 1:6 , 3)
 ```
 
 # nonclock nonforce vs. force tau
 ```{r, include=FALSE}
-IGC_Full <- Readin(NameList, "", "IGC_Full")
-IGC_Full_Force <- ReadinF(NameList,"", "IGC_Full_ForceTau")
+IGC_Full_Estimate1 <- Readin(NameList, "", "IGC_Full_Estimate1")
+IGC_Full_ForceTau1 <- ReadinF(NameList,"", "IGC_Full_ForceTau1")
+IGC_Full_Estimate2 <- Readin(NameList, "", "IGC_Full_Estimate2")
+IGC_Full_ForceTau2 <- ReadinF(NameList,"", "IGC_Full_ForceTau2")
 ```
 
 ```{r}
-form1 <- cbind(IGC_Full[2,], IGC_Full_Force[2,], IGC_Full[2,]-IGC_Full_Force[2,]) %>% data.frame()
-colnames(form1) <- c("ll","ll_tau=0", "difference")
+form1 <- cbind(IGC_Full_Estimate1[2,], IGC_Full_ForceTau1[2,], IGC_Full_Estimate1[2,]-IGC_Full_ForceTau1[2,], IGC_Full_Estimate1[9,]) %>% data.frame()
+colnames(form1) <- c("ll","ll_tau=0", "difference", "estimated tau")
 datatable(form1,
           options = list(pageLength=45) # show all 45 dataset
           )
