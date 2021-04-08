@@ -4,3 +4,4 @@
 "0","library(DT)"
 "0","library(tibble)"
 "0","library(reshape2)"
+"0","load(""IGC_data1.1.RData"")"

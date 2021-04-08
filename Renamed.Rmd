@@ -82,17 +82,61 @@ datatable(total,
 ```
 
 # nonclock nonforce vs. force tau
-```{r, include=FALSE}
-IGC_Full_Estimate1 <- Readin(NameList, "", "IGC_Full_Estimate1")
-IGC_Full_ForceTau1 <- ReadinF(NameList,"", "IGC_Full_ForceTau1")
-IGC_Full_Estimate2 <- Readin(NameList, "", "IGC_Full_Estimate2")
-IGC_Full_ForceTau2 <- ReadinF(NameList,"", "IGC_Full_ForceTau2")
+```{r include=FALSE}
+IGC_Full_noforce_noclock <- Readin(NameList, "", "IGC_Full_noforce_noclock")
+IGC_Full_force_noclock <- ReadinF(NameList, "", "IGC_Full_force_noclock")
 ```
 
 ```{r}
-form1 <- cbind(IGC_Full_Estimate1[2,], IGC_Full_ForceTau1[2,], IGC_Full_Estimate1[2,]-IGC_Full_ForceTau1[2,], IGC_Full_Estimate1[9,]) %>% data.frame()
+form1 <- cbind(IGC_Full_noforce_noclock[2,], IGC_Full_force_noclock[2,], IGC_Full_noforce_noclock[2,]-IGC_Full_force_noclock[2,], IGC_Full_noforce_noclock[9,]) %>% data.frame()
 colnames(form1) <- c("ll","ll_tau=0", "difference", "estimated tau")
-datatable(form1,
-          options = list(pageLength=45) # show all 45 dataset
-          )
+
+IGCchangesFull <- function(dataset){
+  a = dataset[c(44:57),]
+  b = dataset[c(60:73),]
+  mutation = dataset[c(76:89),]
+  num = colSums(a) + colSums(b)
+  den = num + colSums(mutation)
+  num/den
+}
+
+p <- IGCchangesFull(IGC_Full_noforce_noclock)
+form1 <- cbind(form1,p)
+form1
+sort(p)
+
 ```
+
+```{r}
+datatable(form1
+          #options = list(pageLength=45) # show all 45 dataset
+          ) %>%
+formatRound( columns = 1:5 , 3) 
+#hist(form1[,3], xlim = 5)
+#sort(form1[,3])
+sort(form1[,5])
+```
+
+```{r MakePlot}
+#TIGC_Full_noforce_noclock <- t(IGC_Full_noforce_noclock)
+ot <- lm(IGC_Full_noforce_noclock["omega",]~IGC_Full_noforce_noclock["tau",])$coefficients
+pearson <- cor(IGC_Full_noforce_noclock["omega",], IGC_Full_noforce_noclock["tau",], method = "pearson")
+plot(IGC_Full_noforce_noclock["omega",], IGC_Full_noforce_noclock["tau",], xlab = "omega", ylab = "tau")
+abline(lm( IGC_Full_noforce_noclock["tau",]~IGC_Full_noforce_noclock["omega",]))
+sort(IGC_Full_noforce_noclock["tau",])
+```
+```{r}
+#print(IGC_Full_noforce_noclock)
+proportion <- IGC_Full_noforce_noclock[11:25,] / colSums(IGC_Full_noforce_noclock[11:25,])
+
+print(proportion)
+
+
+
+
+```
+
+
+
+
+
