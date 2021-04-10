@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(DT)
 library(dplyr)
-load("IGC_data1.4.RData")
+source("ReadinUnit.R")
 ```
 
 ```{r, include=FALSE}
