@@ -2,10 +2,13 @@ library(dplyr)
 
 List = c('MG211', 'MG214', 'MG222', 'MG223', 'MG337', 'MG479', 'MG521', 'MG526', 'MG561', 'MG735', 'MG755', 'MG852', 'MG1050', 'MG1053', 'MG1215', 'MG2129', 'MG2158', 'MG2210', 'MG2214', 'MG2321', 'MG2358', 'MG2371', 'MG2382', 'MG2861', 'MG3278', 'MG3295', 'MG3309', 'MG3337', 'MG3346', 'MG3347', 'MG3390', 'MG3994', 'MG4025', 'MG4031', 'MG4063', 'MG4268', 'MG4287', 'MG4494', 'MG4553', 'MG4570', 'MG4932', 'MG5153', 'MG5233', 'MG5316', 'MG5550')
 
+newNumbers <- c('211', '214', '222', '223', '337', '479', '521', '526', '561', '735', '755', '852', '1050', '1053', '1215', '2129', '2158', '2210', '2214', '2321', '2358', '2371', '2382', '2861', '3278', '3295', '3309', '3337', '3346', '3347', '3390', '3994', '4025', '4031', '4063', '4268', '4287', '4494', '4553', '4570', '4932', '5153', '5233', '5316', '5550') %>% as.matrix() %>% as.numeric()
+
 
 NameList <- readLines(paste( "./inputFiles/IGC_Full_Estimate1/211/save/MG94_01_02_nonclockqq_summary.txt", sep = ""))
 NameList <- unlist(strsplit(NameList[90], split=" "))
 NameList <- NameList[!(NameList %in% NameList[1])]
+
 
 NameList4Swap <- readLines(swapSamplePath)
 NameList4Swap <- unlist(strsplit(NameList4Swap[count], split = " "))

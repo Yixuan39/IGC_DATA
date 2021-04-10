@@ -14,7 +14,14 @@ library(ggplot2)
 library(DT)
 library(tibble)
 library(reshape2)
-load("IGC_data1.1.RData")
+
+```
+
+```{r load data}
+#load("Rdatas/IGC_data1.1.RData")
+load("Rdatas/IGC_data2.0.Rdata")
+MG <- IGC_Full_noforce_noclock
+MG_Forced <- IGC_Full_force_noclock
 ```
 
 # Table to see log-likelihood 

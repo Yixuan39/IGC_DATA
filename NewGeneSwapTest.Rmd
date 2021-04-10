@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(DT)
 library(dplyr)
-load("IGC_data1.3.RData")
+load("Rdatas/IGC_data1.3.RData")
 ```
 
 # Use gene: ENSDARG, ENSTNIG, and ENSLOCG(as outgroup)
