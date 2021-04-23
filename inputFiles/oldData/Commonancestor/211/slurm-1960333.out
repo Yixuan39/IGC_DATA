@@ -1,0 +1,13 @@
+number of sites to be analyzed:  560
+Traceback (most recent call last):
+  File "/var/lib/slurm-llnl/slurmd/job1960333/slurm_script", line 28, in <module>
+    tau=0.6, omega=0.9, kappa=2.1, inibl=0.1)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 98, in __init__
+    self.initialize_parameters()
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 104, in initialize_parameters
+    self.get_initial_x_process()
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 199, in get_initial_x_process
+    self.x_Lr = np.log(np.ones((l)) * 0.6)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/numpy/core/numeric.py", line 207, in ones
+    a = empty(shape, dtype, order)
+TypeError: 'float' object cannot be interpreted as an integer

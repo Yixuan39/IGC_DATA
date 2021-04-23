@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/var/lib/slurm-llnl/slurmd/job1957938/slurm_script", line 28, in <module>
+    tau=1.0, omega=0.1, kappa=1.0, inibl=0.1)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 98, in __init__
+    self.initialize_parameters()
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 102, in initialize_parameters
+    self.get_tree()
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconv.py", line 113, in get_tree
+    self.tree, self.edge_list, self.node_to_num = read_newick(self.newicktree, self.post_dup)
+  File "/home5/yyang55/.local/lib/python3.5/site-packages/IGCexpansion/CodonGeneconFunc.py", line 141, in read_newick
+    post_dup_clade = list(tree.find_clades(post_dup))[0]
+IndexError: list index out of range
