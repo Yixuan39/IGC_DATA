@@ -1,4 +1,0 @@
-"0","MG_i1_211  <- readLines(""./MG_initial_change1/211MG/save/MG94_01_02_nonclockqq_summary.txt"",  n = 89) %>% as.numeric()"
-"2","Error in readLines(""./MG_initial_change1/211MG/save/MG94_01_02_nonclockqq_summary.txt"",  : 
-  could not find function ""%>%""
-"

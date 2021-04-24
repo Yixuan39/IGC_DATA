@@ -1,5 +1,0 @@
-"0","MGstau <- MG[28:41,] %>% "
-"0","  #log10() %>% "
-"0","  data.frame() %>% "
-"0","  rownames_to_column(var = ""branch"")"
-"0","MGstau"
