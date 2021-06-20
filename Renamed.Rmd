@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(DT)
 library(dplyr)
+library(rlist)
 source("ReadinUnit.R")
 ```
 
@@ -99,7 +100,7 @@ IGCchangesFull <- function(dataset){
   den = num + colSums(mutation)
   num/den
 }
-
+IGC_Full_force_noclock[c(44:57),]
 p <- IGCchangesFull(IGC_Full_noforce_noclock)
 form1 <- cbind(form1,p)
 form1
@@ -126,15 +127,16 @@ abline(lm( IGC_Full_noforce_noclock["tau",]~IGC_Full_noforce_noclock["omega",]))
 sort(IGC_Full_noforce_noclock["tau",])
 ```
 ```{r}
+
 #print(IGC_Full_noforce_noclock)
 proportion <- IGC_Full_noforce_noclock[11:25,] / colSums(IGC_Full_noforce_noclock[11:25,])
 
 print(proportion)
 
-
-
-
 ```
+
+
+
 
 
 

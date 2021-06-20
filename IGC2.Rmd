@@ -1,0 +1,143 @@
+---
+title: "IGC2"
+author: "Yixuan Yang"
+date: "6/20/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(DT)
+library(dplyr)
+library(rlist)
+library(stringr)
+source("ReadinUnit.R")
+```
+
+
+```{r Readin Unit}
+List2 <- c('MG228', 'MG271', 'MG285', 'MG287', 'MG295', 'MG335', 'MG339', 'MG357', 'MG358', 'MG366', 'MG367', 'MG455', 'MG505', 'MG518', 'MG530', 'MG540', 'MG547', 'MG718', 'MG725', 'MG728', 'MG729', 'MG730', 'MG731', 'MG733', 'MG736', 'MG738', 'MG742', 'MG746', 'MG788', 'MG790', 'MG802', 'MG809', 'MG851', 'MG858', 'MG864', 'MG919', 'MG958', 'MG1056', 'MG1058', 'MG1059', 'MG1060', 'MG1069', 'MG1076', 'MG1079', 'MG1081', 'MG1085', 'MG1086', 'MG1095', 'MG1098', 'MG1115', 'MG1161', 'MG1214', 'MG1238', 'MG1271', 'MG1275', 'MG1276', 'MG1277', 'MG1279', 'MG1280', 'MG1297', 'MG1301', 'MG1309', 'MG1315', 'MG1351', 'MG1363', 'MG1393', 'MG1412', 'MG1431', 'MG1432', 'MG1554', 'MG1557', 'MG2056', 'MG2064', 'MG2065', 'MG2068', 'MG2070', 'MG2088', 'MG2091', 'MG2102', 'MG2116', 'MG2117', 'MG2118', 'MG2127', 'MG2140', 'MG2141', 'MG2142', 'MG2169', 'MG2233', 'MG2337', 'MG2338', 'MG2340', 'MG2379', 'MG2517', 'MG2529', 'MG2535', 'MG2782', 'MG2788', 'MG2794', 'MG2842', 'MG2851', 'MG2852', 'MG2853', 'MG2862', 'MG2863', 'MG2882', 'MG2885', 'MG2904', 'MG2907', 'MG2954', 'MG2957', 'MG2958', 'MG3011', 'MG3014', 'MG3015', 'MG3037', 'MG3286', 'MG3292', 'MG3300', 'MG3308', 'MG3310', 'MG3382', 'MG3388', 'MG3442', 'MG3452', 'MG3453', 'MG3456', 'MG3476', 'MG3486', 'MG3651', 'MG3805', 'MG3814', 'MG3868', 'MG3934', 'MG3950', 'MG3955', 'MG3978', 'MG4002', 'MG4006', 'MG4023', 'MG4050', 'MG4053', 'MG4055', 'MG4060', 'MG4233', 'MG4242', 'MG4290', 'MG4304', 'MG4311', 'MG4312', 'MG4322', 'MG4488', 'MG4499', 'MG4516', 'MG4527', 'MG4568', 'MG4609', 'MG4657', 'MG4686', 'MG4697', 'MG4698', 'MG4700', 'MG4722', 'MG4726', 'MG4883', 'MG4923', 'MG4924', 'MG4927', 'MG4933', 'MG4948', 'MG4978', 'MG4992', 'MG5105', 'MG5112', 'MG5149', 'MG5209', 'MG5232', 'MG5262', 'MG5267', 'MG5308', 'MG5313', 'MG5315', 'MG5317', 'MG5318', 'MG5320', 'MG5325', 'MG5341', 'MG5362', 'MG5370', 'MG5412', 'MG5546', 'MG5552', 'MG5567', 'MG5572', 'MG5583')
+
+IGC2Read <- function(number) {
+  path = paste("/Users/yixuanyang/Desktop/IGC_DATA/inputFiles/IGC2_Full_noforce_noclock/", number, "/save/MG94_01_02_nonclockqq_summary.txt", sep = "")
+  file = file.exists(path)
+  if (file == TRUE){
+    v <- scan(path, what = character())
+    splitPoint = (length(v) - 1)/2
+    value <- as.numeric(v[1:splitPoint])
+    names <- v[(splitPoint + 2):length(v)]
+    names(value) <- names
+    return(value)
+  }
+  
+}
+
+ListFunction <- function(cases) {
+  output = list()
+  for(case in cases) {
+    name = case
+    number = substr(case, start=3, stop = nchar(case))
+    data <- IGC2Read(number)
+    output[[name]] <- data
+    
+  }
+  return(output)
+}
+
+restList <- function(List) {
+  restList = c()
+  for(case in List){
+    number = substr(case, start=3, stop = nchar(case))
+    path = paste("/Users/yixuanyang/Desktop/IGC_DATA/inputFiles/IGC2_Full_noforce_noclock/", number, "/save/MG94_01_02_nonclockqq_summary.txt", sep = "")
+    file = file.exists(path)
+    if(file == TRUE){
+      restList <- append(restList,case)
+    }
+    
+  }
+  return(restList)
+}
+print(restList(List2))
+
+IGC2_Full_noforce_noclock <- ListFunction(List2)
+```
+
+```{r}
+# matrix of general parameters
+gp = c()
+for(i in List2){
+  vector = IGC2_Full_noforce_noclock[[i]][1:9]
+  gp = rbind(gp,IGC2_Full_noforce_noclock[[i]][c(1,2,9)])
+}
+rownames(gp) <- restList(List2)
+gp <- data.frame(gp)
+datatable(gp)
+
+```
+
+
+
+```{r}
+# Calculate proportion
+IGC2_Full_noforce_noclock[[1]]
+proportionSep <- function(case){
+  
+    namelist <- names(IGC2_Full_noforce_noclock[[case]])
+    one2two <- c()
+    two2one <- c()
+    mut <- c()
+    for(i in namelist){
+      if(str_detect(i,"1->2")){
+        if (str_detect(i,"N0")==FALSE){
+          one2two <- append(one2two,i)
+        }
+      }
+    }
+    for(i in namelist){
+      if(str_detect(i,"2->1")){
+        if (str_detect(i,"N0")==FALSE){
+          two2one <- append(two2one,i)
+        }
+      }
+    }
+    for(i in namelist){
+      if(str_detect(i,"mut")){
+        if (str_detect(i,"N0")==FALSE){
+          mut <- append(mut,i)
+        }
+      }
+    }
+    one2twoSum <- IGC2_Full_noforce_noclock[[case]][one2two]
+    two2oneSum <- IGC2_Full_noforce_noclock[[case]][two2one]
+    mutSum <- IGC2_Full_noforce_noclock[[case]][mut]
+    num <- sum(one2twoSum, two2oneSum)
+    den <- sum(one2twoSum, two2oneSum, mutSum)
+    p = num/den
+    return(p)
+}
+
+proportionWhole <- function(cases){
+  out = c()
+  for(case in cases){
+    out = append(out, c(case, proportionSep(case)))
+  }
+  return(out)
+}
+cases = restList(List2)
+raw <-matrix(proportionWhole(cases), byrow = TRUE, ncol = 2)
+
+proportion_IGC2 <- as.numeric(raw[,2])
+names(proportion_IGC2) <- raw[,1]
+
+```
+
+
+```{r}
+proportion_IGC2 <- datatable(data.frame(proportion_IGC2))
+sort(proportion_IGC2)
+raw
+IGC2_Full_noforce_noclock[[1]]
+```
+
+
+
