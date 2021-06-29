@@ -37,27 +37,47 @@ List2 = getList("IGC2_Full_noforce_noclock")
 IGC2Read <- function(number,directory) {
   cwd <- getwd()
   path = paste(cwd, "/inputFiles/",directory,"/", number, "/save/MG94_01_02_nonclockqq_summary.txt", sep = "")
-  v <- scan(path, what = character())
-  splitPoint = (length(v) - 1)/2
-  value <- as.numeric(v[1:splitPoint])
-  names <- v[(splitPoint + 2):length(v)]
-  names(value) <- names
-  return(value)
-}
-
-ListFunction <- function(cases, directory) {
-  output = list()
-  for(case in cases) {
-    name = case
-    number = substr(case, start=3, stop = nchar(case))
-    data <- IGC2Read(number, directory)
-    output[[name]] <- data
-    
+  file = file.exists(path)
+  if(file == TRUE){
+    v <- scan(path, what = character())
+    splitPoint = (length(v) - 1)/2
+    value <- as.numeric(v[1:splitPoint])
+    names <- v[(splitPoint + 2):length(v)]
+    names(value) <- names
+    return(value)
   }
-  return(output)
+  else{
+    print("no such file")
+  }
 }
 
-IGC2_Full_noforce_noclock <- ListFunction(List2, "IGC2_Full_noforce_noclock")
+ListFunction <- function(cases, directory,option) {
+  if(option == "List"){
+    output = list()
+    for(case in cases) {
+      name = case
+      number = substr(case, start=3, stop = nchar(case))
+      data <- IGC2Read(number, directory)
+      output[[name]]<- data
+    }
+    return(output)
+  }
+  if(option == "Matrix"){
+    output = c()
+    for(case in cases) {
+      name = case
+      number = substr(case, start=3, stop = nchar(case))
+      data <- IGC2Read(number, directory)
+      output = append(output,data)
+    }
+    output = matrix(output, ncol = length(cases))
+    return(output) 
+  }
+}
+```
+
+```{r}
+IGC2_Full_noforce_noclock <- ListFunction(List2, "IGC2_Full_noforce_noclock","List")
 List2
 ```
 
@@ -147,5 +167,8 @@ cor(omega,proportion_IGC2)
 s = lm(proportion_IGC2~omega)
 abline(s)
 ```
-
+```{r}
+IGC2_Swap_noforce_clock <- ListFunction(List2, "IGC2_Swap_noforce_clock","List")
+IGC2_Swap_noforce_clock
+```
 
