@@ -13,8 +13,7 @@ library(rlist)
 library(stringr)
 ```
 
-```{r}
-
+```{r Readin Unit}
 getList <- function(directory){
   cwd <- getwd()
   ListOutput = c()
@@ -25,14 +24,10 @@ getList <- function(directory){
       ListOutput = append(ListOutput,paste("MG",as.character(i),sep=""))
     }
   }
-  
   return(ListOutput)
 }
-List2 = getList("IGC2_Full_noforce_noclock")
 
-```
 
-```{r Readin Unit}
 IGC2Read <- function(number,directory) {
   cwd <- getwd()
   path = paste(cwd, "/inputFiles/",directory,"/", number, "/save/MG94_01_02_nonclockqq_summary.txt", sep = "")
@@ -42,6 +37,8 @@ IGC2Read <- function(number,directory) {
     splitPoint = (length(v) - 1)/2
     value <- as.numeric(v[1:splitPoint])
     names <- v[(splitPoint + 2):length(v)]
+    #out = data.frame(names,value)
+    #colnames(out) <- c("names", number)
     names(value) <- names
     return(value)
   }
@@ -50,7 +47,8 @@ IGC2Read <- function(number,directory) {
   }
 }
 
-ListFunction <- function(cases, directory,option) {
+ListFunction <- function(directory,option) {
+  cases = getList(directory)
   if(option == "List"){
     output = list()
     for(case in cases) {
@@ -62,22 +60,28 @@ ListFunction <- function(cases, directory,option) {
     return(output)
   }
   if(option == "Matrix"){
-    output = c()
+    output = NoMissingGeneName
     for(case in cases) {
-      name = case
+      #name = case
       number = substr(case, start=3, stop = nchar(case))
       data <- IGC2Read(number, directory)
-      output = append(output,data)
+      #lengthList=append(lengthList,data)
+      output = merge(output,data,all=TRUE,sort=FALSE)
     }
-    output = matrix(output, ncol = length(cases))
+    #output = matrix( nrow = max(lengthList), ncol = )
     return(output) 
   }
 }
 ```
 
 ```{r}
-IGC2_Full_noforce_noclock <- ListFunction(List2, "IGC2_Full_noforce_noclock","List")
+IGC2_Full_noforce_noclock <- ListFunction("IGC2_Full_noforce_noclock","List")
 #List2
+test1 <- IGC2Read("228","IGC2_Full_noforce_noclock")
+test2 <- IGC2Read("271","IGC2_Full_noforce_noclock")
+test = merge(test1,test2,all = TRUE, sort = FALSE)
+merge(NoMissingGeneName,test1, all= TRUE, sort = FALSE)
+IGC2_Full_noforce_noclock[[1]][2]
 ```
 
 ```{r}
