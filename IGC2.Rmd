@@ -2,18 +2,19 @@
 title: "IGC2"
 author: "Yixuan Yang"
 date: "6/20/2021"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(DT)
 library(dplyr)
-library(rlist)
-library(stringr)
+library(ggplot2)
 ```
 
-```{r Readin Unit}
+```{r Readin Unit, include=FALSE}
 # getList function will return a list of folder names in a data folder.
 getList <- function(directory){
   cwd <- getwd()
@@ -28,12 +29,28 @@ getList <- function(directory){
   return(ListOutput)
 }
 
+summaryFile <- function(folder, subfolder){
+  savePath <- paste(folder, "/", subfolder, "/save/", sep = "")
+  files <- list.files(savePath)
+  if(length(files) == 2){
+    for(i in files){
+      if(grep("summary",i)){
+        return(i)
+      }
+    }
+  }
+  else{
+    return(FALSE)
+  }
+}
+
 # IGC2Read is a module of List Function. It reads one data outcome as a vector.
 IGC2Read <- function(number,directory) {
   cwd <- getwd()
-  path = paste(cwd, "/inputFiles/",directory,"/", number, "/save/MG94_01_02_nonclockqq_summary.txt", sep = "")
-  file = file.exists(path)
-  if(file == TRUE){
+  file = summaryFile(paste("inputFiles/", directory, sep = ""),number)
+  path = paste(cwd, "/inputFiles/",directory,"/", number, "/save/", file, sep = "")
+  #file = file.exists(path)
+  if(file != FALSE){
     v <- scan(path, what = character())
     splitPoint = (length(v) - 1)/2
     value <- as.numeric(v[1:splitPoint])
@@ -47,19 +64,23 @@ IGC2Read <- function(number,directory) {
 }
 
 ListFunction <- function(directory,option) {
-  cases = getList(directory)
+  folder = paste("inputFiles/", directory, sep = "")
+  cases = as.character(sort(as.numeric(list.files(folder))))
   if(option == "List"){
     output = list()
     for(case in cases) {
-      name = case
-      number = substr(case, start=3, stop = nchar(case))
+      
+      #file = summaryFile(folder,case)
+      
+      name = paste("MG", case, sep = "")#case
+      number = case#substr(case, start=3, stop = nchar(case))
       data <- IGC2Read(number, directory)
       output[[name]]<- data
     }
     return(output)
   }
   if(option == "Matrix"){
-    output = NoMissingGeneName
+    #output = NoMissingGeneName
     for(case in cases) {
       #name = case
       number = substr(case, start=3, stop = nchar(case))
@@ -73,17 +94,12 @@ ListFunction <- function(directory,option) {
 }
 ```
 
-```{r}
+```{r, include=FALSE}
 IGC2_Full_noforce_noclock <- ListFunction("IGC2_Full_noforce_noclock","List")
-#List2
-test1 <- IGC2Read("228","IGC2_Full_noforce_noclock")
-test2 <- IGC2Read("271","IGC2_Full_noforce_noclock")
-test = merge(test1,test2,all = TRUE, sort = FALSE)
-merge(NoMissingGeneName,test1, all= TRUE, sort = FALSE)
-IGC2_Full_noforce_noclock[[1]][2]
 ```
 
-```{r}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+List2 =0
 restList <- function(List) {
   restList = c()
   for(case in List){
@@ -109,7 +125,7 @@ datatable(gp)
 
 ```
 
-```{r}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 # Calculate proportion
 #IGC2_Full_noforce_noclock[[1]]
 proportionSep <- function(case){
@@ -164,11 +180,12 @@ names(proportion_IGC2) <- raw[,1]
 ```
 
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 sort(proportion_IGC2)
 datatable(data.frame(proportion_IGC2))
 ```
-```{r}
+
+```{r eval=FALSE, include=FALSE}
 omega = c()
 for(i in List2){
   value <- IGC2_Full_noforce_noclock[[i]][8]
@@ -180,9 +197,100 @@ cor(omega,proportion_IGC2)
 s = lm(proportion_IGC2~omega)
 abline(s)
 ```
-```{r}
-IGC2_Swap_noforce_clock <- ListFunction(List2, "IGC2_Swap_noforce_clock","List")
-IGC2_Swap_noforce_clock
-IGC2_Unswap_noforce_clock <- ListFunction(List2, "IGC2_Unswap_noforce_clock","List")
+
+```{r echo=FALSE, warning=FALSE, include=FALSE}
+IGC1_Swap_noforce_clock <- ListFunction("IGC1_Swap_noforce_clock","List")
+IGC1_Unswap_noforce_clock <- ListFunction("IGC1_Unswap_noforce_clock","List")
+IGC2_Swap_noforce_clock <- ListFunction("IGC2_Swap_noforce_clock","List")
+IGC2_Unswap_noforce_clock <- ListFunction("IGC2_Unswap_noforce_clock","List")
 ```
 
+```{r, include=FALSE}
+# M stand for missing paralog gene dataset
+swapTau_M <- c()
+swapLL_M  <- c()
+
+for(i in IGC2_Swap_noforce_clock){
+  swapTau_M <- append(swapTau_M,i[9])
+  swapLL_M  <- append(swapLL_M,i[2])
+}
+names(swapTau_M) <- names(IGC2_Unswap_noforce_clock)
+names(swapLL_M)  <- names(IGC2_Unswap_noforce_clock)
+
+unswapTau_M <- c()
+unswapLL_M  <- c()
+
+for(i in IGC2_Unswap_noforce_clock){
+  unswapTau_M <- append(unswapTau_M,i[9])
+  unswapLL_M  <- append(unswapLL_M,i[2])
+}
+names(unswapTau_M) <- names(IGC2_Unswap_noforce_clock)
+names(unswapLL_M)  <- names(IGC2_Unswap_noforce_clock)
+
+# F stand for full gene dataset
+swapTau_F <- c()
+swapLL_F  <- c()
+
+for(i in IGC1_Swap_noforce_clock){
+  swapTau_F <- append(swapTau_F,i[9])
+  swapLL_F  <- append(swapLL_F,i[2])
+}
+names(swapTau_F) <- names(IGC1_Unswap_noforce_clock)
+names(swapLL_F)  <- names(IGC1_Unswap_noforce_clock)
+
+unswapTau_F <- c()
+unswapLL_F  <- c()
+
+for(i in IGC1_Unswap_noforce_clock){
+  unswapTau_F <- append(unswapTau_F,i[9])
+  unswapLL_F  <- append(unswapLL_F,i[2])
+}
+names(unswapTau_F) <- names(IGC1_Unswap_noforce_clock)
+names(unswapLL_F)  <- names(IGC1_Unswap_noforce_clock)
+
+# length
+length_M <- c()
+for(i in IGC2_Unswap_noforce_clock){
+  length_M <- append(length_M,i[1])
+}
+names(length_M) <- names(IGC2_Unswap_noforce_clock)
+
+length_F <- c()
+for(i in IGC1_Unswap_noforce_clock){
+  length_F <- append(length_F,i[1])
+}
+names(length_F) <- names(IGC1_Unswap_noforce_clock)
+
+
+```
+
+
+```{r}
+tau.dif.M <- unswapTau_M - swapTau_M
+ll.dif.M  <- unswapLL_M - swapLL_M
+SwapTestM <- matrix(c(length_M,ll.dif.M,tau.dif.M), ncol = 3) %>% as.data.frame()
+colnames(SwapTestM)=c("length","ll.dif","tau.dif")
+
+plot(ll.dif.M,tau.dif.M)
+abline(h=0, col="blue")
+abline(v=0, col="red")
+
+tau.dif.F <- unswapTau_F - swapTau_F
+ll.dif.F  <- unswapLL_F - swapLL_F
+SwapTestF <- matrix(c(length_F,ll.dif.F,tau.dif.F), ncol = 3) %>% as.data.frame()
+colnames(SwapTestF)=c("length","ll.dif","tau.dif")
+
+plot(ll.dif.F,tau.dif.F)
+abline(h=0, col="blue")
+abline(v=0, col="red")
+
+plot(swapTau_M,unswapTau_M)
+abline(coef = c(0,1))
+
+plot(swapTau_F,unswapTau_F)
+abline(coef = c(0,1))
+
+# influence of length
+ggplot(SwapTestM, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5))
+ggplot(SwapTestF, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5))
+```
