@@ -14,6 +14,7 @@ library(stringr)
 ```
 
 ```{r Readin Unit}
+# getList function will return a list of folder names in a data folder.
 getList <- function(directory){
   cwd <- getwd()
   ListOutput = c()
@@ -27,7 +28,7 @@ getList <- function(directory){
   return(ListOutput)
 }
 
-
+# IGC2Read is a module of List Function. It reads one data outcome as a vector.
 IGC2Read <- function(number,directory) {
   cwd <- getwd()
   path = paste(cwd, "/inputFiles/",directory,"/", number, "/save/MG94_01_02_nonclockqq_summary.txt", sep = "")
@@ -37,8 +38,6 @@ IGC2Read <- function(number,directory) {
     splitPoint = (length(v) - 1)/2
     value <- as.numeric(v[1:splitPoint])
     names <- v[(splitPoint + 2):length(v)]
-    #out = data.frame(names,value)
-    #colnames(out) <- c("names", number)
     names(value) <- names
     return(value)
   }
@@ -109,8 +108,6 @@ gp <- data.frame(gp)
 datatable(gp)
 
 ```
-
-
 
 ```{r}
 # Calculate proportion
