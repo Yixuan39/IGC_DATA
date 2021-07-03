@@ -265,13 +265,13 @@ names(length_F) <- names(IGC1_Unswap_noforce_clock)
 ```
 
 
-```{r}
+```{r, echo=FALSE}
 tau.dif.M <- unswapTau_M - swapTau_M
 ll.dif.M  <- unswapLL_M - swapLL_M
 SwapTestM <- matrix(c(length_M,ll.dif.M,tau.dif.M), ncol = 3) %>% as.data.frame()
 colnames(SwapTestM)=c("length","ll.dif","tau.dif")
 
-plot(ll.dif.M,tau.dif.M)
+plot(ll.dif.M,tau.dif.M,main="loglikelihood different vs tau different for missing paralog dataset",xlab = "loglikelihood difference",ylab = "tau different")
 abline(h=0, col="blue")
 abline(v=0, col="red")
 
@@ -280,17 +280,17 @@ ll.dif.F  <- unswapLL_F - swapLL_F
 SwapTestF <- matrix(c(length_F,ll.dif.F,tau.dif.F), ncol = 3) %>% as.data.frame()
 colnames(SwapTestF)=c("length","ll.dif","tau.dif")
 
-plot(ll.dif.F,tau.dif.F)
+plot(ll.dif.F,tau.dif.F, main="loglikelihood different vs tau different for full paralog dataset",xlab = "loglikelihood difference",ylab = "tau different")
 abline(h=0, col="blue")
 abline(v=0, col="red")
 
-plot(swapTau_M,unswapTau_M)
+plot(swapTau_M,unswapTau_M, main = "swap tau vs unswap tau for missing paralog dataset", xlab = "swap tau", ylab = "unswap tau")
 abline(coef = c(0,1))
 
-plot(swapTau_F,unswapTau_F)
+plot(swapTau_F,unswapTau_F, main = "swap tau vs unswap tau for full paralog dataset", xlab = "swap tau", ylab = "unswap tau")
 abline(coef = c(0,1))
 
 # influence of length
-ggplot(SwapTestM, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5))
-ggplot(SwapTestF, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5))
+ggplot(SwapTestM, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5)) + ggtitle("loglikelihood different vs tau different for missing paralog dataset") + xlab("loglikelihood different") + ylab("tau different")
+ggplot(SwapTestF, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5)) + ggtitle("loglikelihood different vs tau different for full paralog dataset") + xlab("loglikelihood different") + ylab("tau different")
 ```
