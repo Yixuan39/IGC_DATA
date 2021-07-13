@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(DT)
 library(dplyr)
 library(ggplot2)
+library(stringr)
 ```
 
 ```{r Readin Unit, include=FALSE}
@@ -45,22 +46,19 @@ summaryFile <- function(folder, subfolder){
 }
 
 # IGC2Read is a module of List Function. It reads one data outcome as a vector.
-IGC2Read <- function(number,directory) {
+IGC2Read <- function(number, directory, file) {
   cwd <- getwd()
-  file = summaryFile(paste("inputFiles/", directory, sep = ""),number)
+  
   path = paste(cwd, "/inputFiles/",directory,"/", number, "/save/", file, sep = "")
   #file = file.exists(path)
-  if(file != FALSE){
-    v <- scan(path, what = character())
-    splitPoint = (length(v) - 1)/2
-    value <- as.numeric(v[1:splitPoint])
-    names <- v[(splitPoint + 2):length(v)]
-    names(value) <- names
-    return(value)
-  }
-  else{
-    print(paste(number, "does not exist", sep = ""))
-  }
+ 
+  v <- scan(path, what = character())
+  splitPoint = (length(v) - 1)/2
+  value <- as.numeric(v[1:splitPoint])
+  names <- v[(splitPoint + 2):length(v)]
+  names(value) <- names
+  return(value)
+ 
 }
 
 ListFunction <- function(directory,option) {
@@ -69,68 +67,50 @@ ListFunction <- function(directory,option) {
   if(option == "List"){
     output = list()
     for(case in cases) {
-      
-      #file = summaryFile(folder,case)
-      
-      name = paste("MG", case, sep = "")#case
-      number = case#substr(case, start=3, stop = nchar(case))
-      data <- IGC2Read(number, directory)
-      output[[name]]<- data
+      file = summaryFile(paste("inputFiles/", directory, sep = ""),case)
+      if(file != FALSE){
+        name = paste("MG", case, sep = "")#case
+        number = case#substr(case, start=3, stop = nchar(case))
+        data <- IGC2Read(number, directory, file)
+        output[[name]]<- data
+      }
+      else{
+        print(paste(case," do not exist", sep = ""))
+      }
     }
     return(output)
   }
   if(option == "Matrix"){
-    #output = NoMissingGeneName
+    output = c()
     for(case in cases) {
-      #name = case
-      number = substr(case, start=3, stop = nchar(case))
-      data <- IGC2Read(number, directory)
-      #lengthList=append(lengthList,data)
-      output = merge(output,data,all=TRUE,sort=FALSE)
+      file = summaryFile(paste("inputFiles/", directory, sep = ""),case)
+      if(file != FALSE){
+        name = paste("MG", case, sep = "")
+        number = case
+        data <- IGC2Read(number, directory, file)
+        col <- names(data)
+        df <- data.frame(col,data)
+        colnames(df) <- c("names", name)
+        output = merge(df,output,all=TRUE,sort=FALSE)
+        output = merge(df,output,all=TRUE,sort=FALSE)
+      }
     }
-    #output = matrix( nrow = max(lengthList), ncol = )
     return(output) 
   }
 }
+
 ```
 
 ```{r, include=FALSE}
+IGC1_Full_noforce_noclock <- ListFunction("IGC1_Full_noforce_noclock","List")
 IGC2_Full_noforce_noclock <- ListFunction("IGC2_Full_noforce_noclock","List")
+IGC2_Full_noforce_noclock_Matrix <- ListFunction("IGC2_Full_noforce_noclock","Matrix")
 ```
 
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
-List2 =0
-restList <- function(List) {
-  restList = c()
-  for(case in List){
-    number = substr(case, start=3, stop = nchar(case))
-    path = paste("/Users/yixuanyang/Desktop/IGC_DATA/inputFiles/IGC2_Full_noforce_noclock/", number, "/save/MG94_01_02_nonclockqq_summary.txt", sep = "")
-    file = file.exists(path)
-    if(file == TRUE){
-      restList <- append(restList,case)
-    }
-    
-  }
-  return(restList)
-}
-# matrix of general parameters
-gp = c()
-for(i in List2){
-  vector = IGC2_Full_noforce_noclock[[i]][1:9]
-  gp = rbind(gp,IGC2_Full_noforce_noclock[[i]][c(1,2,9)])
-}
-rownames(gp) <- restList(List2)
-gp <- data.frame(gp)
-datatable(gp)
-
-```
-
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+```{r, echo=FALSE}
 # Calculate proportion
-#IGC2_Full_noforce_noclock[[1]]
-proportionSep <- function(case){
-  
-    namelist <- names(IGC2_Full_noforce_noclock[[case]])
+proportionSep <- function(case, dataset){
+    namelist <- names(dataset[[case]])
     one2two <- c()
     two2one <- c()
     mut <- c()
@@ -140,43 +120,56 @@ proportionSep <- function(case){
           one2two <- append(one2two,i)
         }
       }
-    }
-    for(i in namelist){
+      
       if(str_detect(i,"2->1")){
         if (str_detect(i,"N0")==FALSE){
           two2one <- append(two2one,i)
         }
       }
-    }
-    for(i in namelist){
+      
       if(str_detect(i,"mut")){
         if (str_detect(i,"N0")==FALSE){
           mut <- append(mut,i)
         }
       }
     }
-    one2twoSum <- IGC2_Full_noforce_noclock[[case]][one2two]
-    two2oneSum <- IGC2_Full_noforce_noclock[[case]][two2one]
-    mutSum <- IGC2_Full_noforce_noclock[[case]][mut]
+    one2twoSum <- dataset[[case]][one2two]
+    two2oneSum <- dataset[[case]][two2one]
+    mutSum <- dataset[[case]][mut]
     num <- sum(one2twoSum, two2oneSum)
     den <- sum(one2twoSum, two2oneSum, mutSum)
     p = num/den
     return(p)
 }
 
-proportionWhole <- function(cases){
+proportionWhole <- function(dataset){
+  cases = names(dataset)
   out = c()
   for(case in cases){
-    out = append(out, c(case, proportionSep(case)))
+    tryCatch({out = append(out, c(case, proportionSep(case, dataset)))},
+             error = function(e){print(case)})
+    
   }
-  return(out)
+  raw <-matrix(out, byrow = TRUE, ncol = 2)
+  output <- as.numeric(raw[,2])
+  names(output) <- raw[,1]
+  return(output)
 }
-#cases = restList(List2)
-raw <-matrix(proportionWhole(List2), byrow = TRUE, ncol = 2)
+```
 
-proportion_IGC2 <- as.numeric(raw[,2])
-names(proportion_IGC2) <- raw[,1]
-
+```{r, echo=FALSE}
+tau.IGC1 <- c()
+for(i in IGC1_Full_noforce_noclock){
+  tau.IGC1 <- append(tau.IGC1, i[9])
+}
+names(tau.IGC1) <- names(IGC1_Full_noforce_noclock)
+tau.IGC2 <- c()
+for(i in IGC2_Full_noforce_noclock){
+  tau.IGC2 <- append(tau.IGC2, i[9])
+}
+names(tau.IGC2) <- names(IGC2_Full_noforce_noclock)
+tau.proportion.IGC1 <- proportionWhole(IGC1_Full_noforce_noclock)
+tau.proportion.IGC2 <- proportionWhole(IGC2_Full_noforce_noclock)
 ```
 
 
@@ -265,13 +258,13 @@ names(length_F) <- names(IGC1_Unswap_noforce_clock)
 ```
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, include=FALSE}
 tau.dif.M <- unswapTau_M - swapTau_M
 ll.dif.M  <- unswapLL_M - swapLL_M
 SwapTestM <- matrix(c(length_M,ll.dif.M,tau.dif.M), ncol = 3) %>% as.data.frame()
 colnames(SwapTestM)=c("length","ll.dif","tau.dif")
 
-plot(ll.dif.M,tau.dif.M,main="loglikelihood different vs tau different for missing paralog dataset",xlab = "loglikelihood difference",ylab = "tau different")
+plot(ll.dif.M,tau.dif.M,main="loglikelihood different vs tau different for missing paralog dataset",xlab = "loglikelihood difference",ylab = "tau different", sub = "plot 1")
 abline(h=0, col="blue")
 abline(v=0, col="red")
 
@@ -280,17 +273,44 @@ ll.dif.F  <- unswapLL_F - swapLL_F
 SwapTestF <- matrix(c(length_F,ll.dif.F,tau.dif.F), ncol = 3) %>% as.data.frame()
 colnames(SwapTestF)=c("length","ll.dif","tau.dif")
 
-plot(ll.dif.F,tau.dif.F, main="loglikelihood different vs tau different for full paralog dataset",xlab = "loglikelihood difference",ylab = "tau different")
+plot(ll.dif.F,tau.dif.F, main="loglikelihood different vs tau different for full paralog dataset",xlab = "loglikelihood difference",ylab = "tau different", sub = "plot 2")
 abline(h=0, col="blue")
 abline(v=0, col="red")
 
-plot(swapTau_M,unswapTau_M, main = "swap tau vs unswap tau for missing paralog dataset", xlab = "swap tau", ylab = "unswap tau")
+plot(swapTau_M,unswapTau_M, main = "swap tau vs unswap tau for missing paralog dataset", xlab = "swap tau", ylab = "unswap tau", sub = "plot 3")
 abline(coef = c(0,1))
 
-plot(swapTau_F,unswapTau_F, main = "swap tau vs unswap tau for full paralog dataset", xlab = "swap tau", ylab = "unswap tau")
+plot(swapTau_F,unswapTau_F, main = "swap tau vs unswap tau for full paralog dataset", xlab = "swap tau", ylab = "unswap tau", sub = "plot 4")
 abline(coef = c(0,1))
 
 # influence of length
-ggplot(SwapTestM, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5)) + ggtitle("loglikelihood different vs tau different for missing paralog dataset") + xlab("loglikelihood different") + ylab("tau different")
-ggplot(SwapTestF, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5)) + ggtitle("loglikelihood different vs tau different for full paralog dataset") + xlab("loglikelihood different") + ylab("tau different")
+ggplot(SwapTestM, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5)) + ggtitle("loglikelihood different vs tau different for missing paralog dataset", subtitle = "plot 5") + xlab("loglikelihood different") + ylab("tau different")
+ggplot(SwapTestF, aes(x=ll.dif, y=tau.dif, color=length)) + geom_point() + scale_color_gradientn(colours = rainbow(5)) + ggtitle("loglikelihood different vs tau different for full paralog dataset", subtitle = "plot 6") + xlab("loglikelihood different") + ylab("tau different")
 ```
+# histograms
+```{r histograms}
+hist(tau.IGC1, main = "tau value for no-missing-paralog dataset", sub = paste("Mean: ", round(mean(tau.IGC1),4),"\nStandard Deviation: ", round(sd(tau.IGC1),4), sep = ""), xlab = "")
+
+hist(tau.IGC2, main = "tau value for missing-paralog dataset", sub = paste("Mean: ", round(mean(tau.IGC2),4),"\nStandard Deviation: ", round(sd(tau.IGC2),4), sep = ""), xlab = "")
+
+hist(tau.proportion.IGC1, main = "Proportion of changes due to IGC for no-missing-paralog dataset", sub = paste("Mean: ", round(mean(tau.proportion.IGC1),4),"\nStandard Deviation: ", round(sd(tau.proportion.IGC1),4), sep = ""), xlab = "")
+
+hist(tau.proportion.IGC2, main = "Proportion of changes due to IGC for missing-paralog dataset", sub = paste("Mean: ", round(mean(tau.proportion.IGC2),4),"\nStandard Deviation: ", round(sd(tau.proportion.IGC2),4), sep = ""), xlab = "")
+
+hist(swapTau_F, main = "tau value for swapped no-missing-paralog dataset")
+hist(unswapTau_F, main = "tau value for unswapped no-missing-paralog dataset")
+hist(swapTau_M, main = "tau value for swapped missing-paralog dataset")
+hist(unswapTau_M, main = "tau value for unswapped missing-paralog dataset")
+
+barplot(tau.IGC1, main = "tau value for no-missing-paralog dataset")
+barplot(tau.IGC2, main = "tau value for missing-paralog dataset")
+barplot(tau.proportion.IGC1, main = "Proportion of changes due to IGC for no-missing-paralog dataset")
+barplot(tau.proportion.IGC2, main = "Proportion of changes due to IGC for missing-paralog dataset")
+barplot(swapTau_F, main = "tau value for swapped no-missing-paralog dataset")
+barplot(unswapTau_F, main = "tau value for unswapped no-missing-paralog dataset")
+barplot(swapTau_M, main = "tau value for swapped missing-paralog dataset")
+barplot(unswapTau_M, main = "tau value for unswapped missing-paralog dataset")
+
+
+```
+

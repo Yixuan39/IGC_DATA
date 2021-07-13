@@ -1,0 +1,114 @@
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+reactor is initialized
+create node to conditional likelihoods
+create likelihoods
+check feasibility
+delete likelihoods
+create one sample of node to joint ancestral state
+respond to a "ance" request
+number of sites to be analyzed:  560
+Successfully loaded parameter value from MG94Pillar211
+log likelihood =  -12408.76474435211
+Edge derivatives =  [-0.026430675471139697, 0.01705556937632305, -0.00918817803007721, -0.004156219713590481, -0.026091817242485937, -0.03291046589472922, -0.00413194887793078, -0.01924643058905373, 0.017933420298373415, 0.04738530200678678, -0.0019178045637481544, 0.011248934114266723, 0.016460844909875608, 0.00467530671677574, 0.026708786781100835, 0.016868175133979812]
+other derivatives: [ 0.33469405 -0.08349161 -0.02110028 -0.01091394 -0.00272848 -0.03637979]
+Current x array =  [-0.67713006 -0.78128658 -0.54924132  0.63167567 -2.7985272  -1.16775829
+ -1.71613329 -0.64064876 -1.07551827 -1.85875064 -3.38337862 -3.89289335
+ -0.86685788 -1.02608425 -1.56725121 -1.51359586 -2.7502288  -1.78895882
+ -2.43429205 -1.70101815 -1.13900937 -1.344754  ]
+log likelihood =  -12756.153340491357
+Edge derivatives =  [1.8166062297250143, -0.7129127666446922, -2.688237772379241, -2.163775469818743, 0.46467573683847946, 0.686960568218964, 4.2891847515459265, 3.2557593686188344, -6.034719251798749, -7.442586449636311, 0.005510488878603836, 1.3164680466708047, -1.8605134049704033, -1.1793907699036372, -6.285863030906631, -3.526063723446825]
+other derivatives: [-2672.08488367    68.77635315   -59.72178769    68.93733371
+   -25.72123776    18.39925972]
+Current x array =  [-0.34243601 -0.8647782  -0.5703416   0.62076174 -2.80125568 -1.20413808
+ -1.74256397 -0.62359319 -1.08470644 -1.86290686 -3.40947044 -3.92580382
+ -0.87098983 -1.04533068 -1.54931779 -1.46621056 -2.7521466  -1.77770989
+ -2.4178312  -1.69634284 -1.11230059 -1.32788582]
+log likelihood =  -12408.764726246634
+Edge derivatives =  [-0.027466418953365157, 0.015390407677383061, -0.011505488155408, -0.005537675671495823, -0.0264900076926598, -0.033080745149023205, -0.005427617393253037, -0.020551335599728437, 0.014900602557441023, 0.04320951910155369, -0.0026747853610225025, 0.009904891860378809, 0.01503044683985854, 0.0028920328669685136, 0.022570915855236573, 0.013842427001744984]
+other derivatives: [-0.08440111 -0.06111804 -0.02983143 -0.00254659 -0.01091394 -0.03528839]
+Current x array =  [-0.67702348 -0.78131317 -0.54924804  0.6316722  -2.79852807 -1.16776988
+ -1.71614171 -0.64064333 -1.07552119 -1.85875197 -3.38338693 -3.89290383
+ -0.86685919 -1.02609038 -1.5672455  -1.51358077 -2.75022941 -1.78895524
+ -2.4342868  -1.70101666 -1.13900087 -1.34474862]
+      fun: 12408.764726246634
+ hess_inv: <22x22 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ 0.08440111,  0.06111804,  0.02983143,  0.00254659,  0.01091394,
+        0.03528839,  0.02746642, -0.01539041,  0.01150549,  0.00553768,
+        0.02649001,  0.03308075,  0.00542762,  0.02055134, -0.0149006 ,
+       -0.04320952,  0.00267479, -0.00990489, -0.01503045, -0.00289203,
+       -0.02257092, -0.01384243])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 3
+      nit: 1
+     njev: 3
+   status: 0
+  success: True
+        x: array([-0.67702348, -0.78131317, -0.54924804,  0.6316722 , -2.79852807,
+       -1.16776988, -1.71614171, -0.64064333, -1.07552119, -1.85875197,
+       -3.38338693, -3.89290383, -0.86685919, -1.02609038, -1.5672455 ,
+       -1.51358077, -2.75022941, -1.78895524, -2.4342868 , -1.70101666,
+       -1.13900087, -1.34474862])
+{('N0', 'N1'): [3.6090202047566593, 3.6090202047566584], ('N0', 'ENSLOCG'): [0.0, 0.0], ('N1', 'N3'): [17.803690249204493, 17.58793744537951], ('N1', 'N2'): [7.495683903762039, 7.245573379395488], ('N3', 'N6'): [2.282332844525208, 2.5003397579826183], ('N3', 'N4'): [1.1283512497109502, 1.1107482472768402], ('N2', 'ENSDARG'): [28.086746167626643, 28.485114912550507], ('N2', 'ENSAMXG'): [23.808122185296266, 22.038196237428494], ('N6', 'N7'): [15.105698248325762, 12.429426095853113], ('N6', 'ENSGACG'): [12.556251924369473, 12.832011271162205], ('N4', 'N5'): [5.711156650568763, 3.9423182678680244], ('N4', 'ENSONIG'): [9.377427425003763, 10.858224180234256], ('N7', 'ENSTRUG'): [5.0652334872078075, 6.7741766597430635], ('N7', 'ENSTNIG'): [13.966257656991882, 9.185705546510675], ('N5', 'ENSXMAG'): [20.96293445886184, 20.176617569049238], ('N5', 'ENSORLG'): [17.391652611639806, 16.672669735755882]}
+[663.5, 663.5, 1906.5, 1662.0, 2512.5, 2525.0, 2383.5, 2403.5, 2632.5, 2674.5, 2596.0, 2687.0, 2813.0, 2738.0, 2774.0, 2784.0]

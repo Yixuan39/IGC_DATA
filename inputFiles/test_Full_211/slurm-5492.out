@@ -1,0 +1,15 @@
+number of sites to be analyzed:  560
+Traceback (most recent call last):
+  File "/var/spool/slurmd/job05492/slurm_script", line 44, in <module>
+    geneconv = ReCodonGeneconv(newicktree, alignment_file, paralog, Model=model, Force=Force, clock=None,
+  File "/home5/yyang55/.local/lib/python3.8/site-packages/IGCexpansion/CodonGeneconv.py", line 98, in __init__
+    self.initialize_parameters()
+  File "/home5/yyang55/.local/lib/python3.8/site-packages/IGCexpansion/CodonGeneconv.py", line 103, in initialize_parameters
+    self.get_data()
+  File "/home5/yyang55/.local/lib/python3.8/site-packages/IGCexpansion/CodonGeneconv.py", line 146, in get_data
+    self.observable_names = [n for n in self.name_to_seq.keys() if self.separate_species_paralog_names(n)[0] in self.node_to_num.keys()]
+  File "/home5/yyang55/.local/lib/python3.8/site-packages/IGCexpansion/CodonGeneconv.py", line 146, in <listcomp>
+    self.observable_names = [n for n in self.name_to_seq.keys() if self.separate_species_paralog_names(n)[0] in self.node_to_num.keys()]
+  File "/home5/yyang55/.local/lib/python3.8/site-packages/IGCexpansion/CodonGeneconv.py", line 165, in separate_species_paralog_names
+    return [seq_name.replace(matched_paralog[0], ''), matched_paralog[0]]
+IndexError: list index out of range

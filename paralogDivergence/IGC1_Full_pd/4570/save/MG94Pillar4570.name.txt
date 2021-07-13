@@ -1,0 +1,16 @@
+brahch N0 N1
+brahch N0 ENSLOCG
+brahch N1 N3
+brahch N1 N2
+brahch N3 N6
+brahch N3 N4
+brahch N2 ENSDARG
+brahch N2 ENSAMXG
+brahch N6 N7
+brahch N6 ENSGACG
+brahch N4 N5
+brahch N4 ENSONIG
+brahch N7 ENSTRUG
+brahch N7 ENSTNIG
+brahch N5 ENSXMAG
+brahch N5 ENSORLG
