@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/var/spool/slurmd/job05489/slurm_script", line 9, in <module>
-    from IGCexpansion.acR import *
-  File "/home5/yyang55/.local/lib/python3.8/site-packages/IGCexpansion/acR.py", line 12, in <module>
-    import pandas as pd
-ModuleNotFoundError: No module named 'pandas'

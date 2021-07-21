@@ -105,6 +105,7 @@ ListFunction <- function(directory,option) {
 IGC1_Full_noforce_noclock <- ListFunction("IGC1_Full_noforce_noclock","List")
 IGC2_Full_noforce_noclock <- ListFunction("IGC2_Full_noforce_noclock","List")
 IGC2_Full_noforce_noclock_Matrix <- ListFunction("IGC2_Full_noforce_noclock","Matrix")
+IGC2_Full_noforce_noclock_newNode <- ListFunction("IGC2_Full_noforce_noclock2", "List")
 ```
 
 ```{r, echo=FALSE}
@@ -310,7 +311,13 @@ barplot(swapTau_F, main = "tau value for swapped no-missing-paralog dataset")
 barplot(unswapTau_F, main = "tau value for unswapped no-missing-paralog dataset")
 barplot(swapTau_M, main = "tau value for swapped missing-paralog dataset")
 barplot(unswapTau_M, main = "tau value for unswapped missing-paralog dataset")
-
-
 ```
 
+```{r}
+tau <- c()
+for(i in IGC1_Full_noforce_noclock){
+  tau <- append(tau, i[9])
+}
+sort(tau)
+mean(tau)
+```
