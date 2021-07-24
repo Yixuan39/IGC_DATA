@@ -2,8 +2,8 @@
     "path": "~/Desktop/IGC_DATA",
     "sortOrder": [
         {
-            "ascending": true,
-            "columnIndex": 2
+            "columnIndex": 2,
+            "ascending": true
         }
     ]
 }

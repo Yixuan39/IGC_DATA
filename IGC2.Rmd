@@ -13,92 +13,7 @@ library(DT)
 library(dplyr)
 library(ggplot2)
 library(stringr)
-```
-
-```{r Readin Unit, include=FALSE}
-# getList function will return a list of folder names in a data folder.
-getList <- function(directory){
-  cwd <- getwd()
-  ListOutput = c()
-  for(i in c(1:5588)){
-    path = paste(cwd,"/inputfiles/",directory,"/",i,"/save/MG94_01_02_nonclockqq_summary.txt", sep = "")
-    file = file.exists(path)
-    if(file == TRUE){
-      ListOutput = append(ListOutput,paste("MG",as.character(i),sep=""))
-    }
-  }
-  return(ListOutput)
-}
-
-summaryFile <- function(folder, subfolder){
-  savePath <- paste(folder, "/", subfolder, "/save/", sep = "")
-  files <- list.files(savePath)
-  if(length(files) == 2){
-    for(i in files){
-      if(grep("summary",i)){
-        return(i)
-      }
-    }
-  }
-  else{
-    return(FALSE)
-  }
-}
-
-# IGC2Read is a module of List Function. It reads one data outcome as a vector.
-IGC2Read <- function(number, directory, file) {
-  cwd <- getwd()
-  
-  path = paste(cwd, "/inputFiles/",directory,"/", number, "/save/", file, sep = "")
-  #file = file.exists(path)
- 
-  v <- scan(path, what = character())
-  splitPoint = (length(v) - 1)/2
-  value <- as.numeric(v[1:splitPoint])
-  names <- v[(splitPoint + 2):length(v)]
-  names(value) <- names
-  return(value)
- 
-}
-
-ListFunction <- function(directory,option) {
-  folder = paste("inputFiles/", directory, sep = "")
-  cases = as.character(sort(as.numeric(list.files(folder))))
-  if(option == "List"){
-    output = list()
-    for(case in cases) {
-      file = summaryFile(paste("inputFiles/", directory, sep = ""),case)
-      if(file != FALSE){
-        name = paste("MG", case, sep = "")#case
-        number = case#substr(case, start=3, stop = nchar(case))
-        data <- IGC2Read(number, directory, file)
-        output[[name]]<- data
-      }
-      else{
-        print(paste(case," do not exist", sep = ""))
-      }
-    }
-    return(output)
-  }
-  if(option == "Matrix"){
-    output = c()
-    for(case in cases) {
-      file = summaryFile(paste("inputFiles/", directory, sep = ""),case)
-      if(file != FALSE){
-        name = paste("MG", case, sep = "")
-        number = case
-        data <- IGC2Read(number, directory, file)
-        col <- names(data)
-        df <- data.frame(col,data)
-        colnames(df) <- c("names", name)
-        output = merge(df,output,all=TRUE,sort=FALSE)
-        output = merge(df,output,all=TRUE,sort=FALSE)
-      }
-    }
-    return(output) 
-  }
-}
-
+source("Functions.R")
 ```
 
 ```{r, include=FALSE}
@@ -320,4 +235,39 @@ for(i in IGC1_Full_noforce_noclock){
 }
 sort(tau)
 mean(tau)
+```
+
+```{r}
+Sensitivity <- ListFunction("TauValues", "Matrix")
+IGC_estimate <-as.vector(IGC1_Full_noforce_noclock$MG211)
+Sensitivity <- cbind(Sensitivity, IGC_estimate)
+save(Sensitivity, file = "sensitivity.Rdata")
+```
+
+```{r}
+a <- c()
+b <- c()
+for(i in IGC1_Full_noforce_noclock){
+  a <- append(a, i[9])
+  b <- append(b, i[26:41])
+}
+b <- matrix(b, nrow = 16)
+rownames(b) <- names(IGC1_Full_noforce_noclock[[1]][26:41])
+names(a) <- names(IGC1_Full_noforce_noclock)
+colnames(b) <- names(IGC1_Full_noforce_noclock)
+
+pdf("branch.specific.vs.overall.pdf",height=6,width=8)
+for(j in 1:16){
+  n <- names(IGC1_Full_noforce_noclock[[1]][26:41])[j]
+  plot(a, b[j,], type = "n", xlab = "overallTau", ylab = n)
+  text(a,b[j,], substr(names(b[j,]),3,length(names(b[j,]))))
+  abline(a=0, b=1)
+}
+dev.off()
+```
+
+```{r}
+# update
+IGC1_Full_noforce_noclock_opt1 <- ListFunction("IGC1_Full_noforce_noclock_opt1", "List")
+IGC1_Full_noforce_noclock_update <- comparell(IGC1_Full_noforce_noclock, IGC1_Full_noforce_noclock_opt1)
 ```
